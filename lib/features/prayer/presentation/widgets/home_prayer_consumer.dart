@@ -5,7 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:rahma_project/features/prayer/presentation/cubit/prayer_cubit.dart';
 import 'package:rahma_project/features/prayer/presentation/widgets/prayer_card.dart';
 import 'package:rahma_project/features/prayer/presentation/widgets/prayer_card_loading.dart';
-import 'package:rahma_project/features/prayer/presentation/widgets/retry_widget.dart';
+import 'package:rahma_project/features/home/presentation/widgets/retry_widget.dart';
 import 'package:rahma_project/generated/l10n.dart';
 
 class HomePrayersConsumer extends StatelessWidget {

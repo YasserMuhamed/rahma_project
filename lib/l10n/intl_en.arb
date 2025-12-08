@@ -15,5 +15,7 @@
   "location_changed": "Location Changed",
   "location_changed_message": "Your location has changed. Do you want to update prayer times for the new location?",
   "ok": "OK",
-  "cancel": "Cancel"
+  "cancel": "Cancel",
+  "azkar": "Azkar",
+  "qibla": "Qibla"
 }

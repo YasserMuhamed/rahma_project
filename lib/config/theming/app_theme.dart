@@ -35,7 +35,7 @@ class DarkEarthyTheme {
   // Theme data
   static ThemeData get themeData {
     return ThemeData(
-      fontFamily: "Tajawal",
+      fontFamily: "Almarai",
       // Core theme properties
       brightness: Brightness.dark,
       primaryColor: vibrantEmerald,

@@ -137,7 +137,7 @@ class _PrayerCardState extends State<PrayerCard> {
           end: Alignment.bottomRight,
           colors: [AppColors.vibrantEmerald, AppColors.forestGreen],
         ),
-        boxShadow: [BoxShadow(color: AppColors.vibrantEmerald.withOpacity(0.3), blurRadius: 20, offset: const Offset(0, 10))],
+        boxShadow: [BoxShadow(color: AppColors.vibrantEmerald.withOpacity(0.3), blurRadius: 10, offset: const Offset(0, 5))],
       ),
       child: Stack(
         children: [

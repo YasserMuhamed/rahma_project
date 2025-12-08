@@ -158,6 +158,16 @@ class S {
   String get cancel {
     return Intl.message('Cancel', name: 'cancel', desc: '', args: []);
   }
+
+  /// `Azkar`
+  String get azkar {
+    return Intl.message('Azkar', name: 'azkar', desc: '', args: []);
+  }
+
+  /// `Qibla`
+  String get qibla {
+    return Intl.message('Qibla', name: 'qibla', desc: '', args: []);
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

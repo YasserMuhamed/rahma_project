@@ -24,6 +24,7 @@ class MessageLookup extends MessageLookupByLibrary {
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
     "app_name": MessageLookupByLibrary.simpleMessage("Rahma"),
     "asr": MessageLookupByLibrary.simpleMessage("Asr"),
+    "azkar": MessageLookupByLibrary.simpleMessage("Azkar"),
     "cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
     "dhuhr": MessageLookupByLibrary.simpleMessage("Dhuhr"),
     "fajr": MessageLookupByLibrary.simpleMessage("Fajr"),
@@ -40,6 +41,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "ok": MessageLookupByLibrary.simpleMessage("OK"),
     "prayer_times": MessageLookupByLibrary.simpleMessage("Prayer Times"),
     "previous": MessageLookupByLibrary.simpleMessage("Previous"),
+    "qibla": MessageLookupByLibrary.simpleMessage("Qibla"),
     "retry": MessageLookupByLibrary.simpleMessage("Retry"),
     "sunrise": MessageLookupByLibrary.simpleMessage("Sunrise"),
     "update_prayer_times": MessageLookupByLibrary.simpleMessage(
