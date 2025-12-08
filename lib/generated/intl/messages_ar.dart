@@ -40,7 +40,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "prayer_times": MessageLookupByLibrary.simpleMessage("مواقيت الصلاة"),
     "previous": MessageLookupByLibrary.simpleMessage("السابق"),
     "qibla": MessageLookupByLibrary.simpleMessage("القبلة"),
+    "quraan": MessageLookupByLibrary.simpleMessage("القرآن"),
     "retry": MessageLookupByLibrary.simpleMessage("إعادة المحاولة"),
+    "services": MessageLookupByLibrary.simpleMessage("الخدمات"),
     "sunrise": MessageLookupByLibrary.simpleMessage("الشروق"),
     "update_prayer_times": MessageLookupByLibrary.simpleMessage(
       "تحديث بالموقع الحالي",

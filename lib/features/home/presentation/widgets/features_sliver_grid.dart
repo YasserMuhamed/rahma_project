@@ -12,11 +12,13 @@ class FeaturesSliverGrid extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 16),
       sliver: SliverMasonryGrid(
         gridDelegate: SliverSimpleGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
-        mainAxisSpacing: 16,
+        mainAxisSpacing: 8,
         crossAxisSpacing: 16,
         delegate: SliverChildListDelegate([
           FeatureCard(title: context.t.azkar, icon: Icon(Icons.book)),
           FeatureCard(title: context.t.qibla, icon: Icon(Icons.navigation_outlined)),
+          FeatureCard(title: context.t.prayer_times, icon: Icon(Icons.watch_later_outlined)),
+          FeatureCard(title: context.t.quraan, icon: Icon(Icons.menu_book_rounded)),
         ]),
       ),
     );

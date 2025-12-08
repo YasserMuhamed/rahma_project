@@ -16,9 +16,7 @@ class HomeSliverAppBar extends StatelessWidget {
         builder: (BuildContext context, BoxConstraints constraints) {
           return FlexibleSpaceBar(
             centerTitle: true,
-            titlePadding: EdgeInsetsDirectional.all(16),
             title: Text(S.of(context).app_name, style: TextStyle(fontWeight: FontWeight.w600)),
-
             background: Container(
               decoration: BoxDecoration(
                 gradient: LinearGradient(
@@ -63,7 +61,7 @@ class HomeSliverAppBar extends StatelessWidget {
                             decoration: BoxDecoration(
                               color: Colors.white.withOpacity(0.15),
                               borderRadius: BorderRadius.circular(14.r),
-                              border: Border.all(color: Colors.white.withOpacity(0.2), width: 1.5.w),
+                              border: Border.all(color: Colors.white.withValues(alpha: 0.2), width: 1.5.w),
                             ),
                             child: Icon(Icons.mosque_outlined, color: Colors.white, size: 32.sp),
                           ),
@@ -74,7 +72,7 @@ class HomeSliverAppBar extends StatelessWidget {
                           Text(
                             S.of(context).prayer_times,
                             style: TextStyle(
-                              color: Colors.white.withOpacity(0.8),
+                              color: Colors.white.withValues(alpha: 0.8),
                               fontSize: 12.sp,
                               fontFamily: "Tajawal",
                               fontWeight: FontWeight.w400,

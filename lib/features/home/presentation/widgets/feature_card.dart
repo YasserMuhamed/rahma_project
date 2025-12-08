@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:intl/intl.dart';
 import 'package:rahma_project/config/theming/app_colors.dart';
 import 'package:rahma_project/config/theming/app_text_styles.dart';
 
@@ -27,14 +28,20 @@ class FeatureCard extends StatelessWidget {
             begin: Alignment.bottomLeft,
             end: Alignment.topRight,
           ),
-          boxShadow: [BoxShadow(color: AppColors.vibrantEmerald.withOpacity(0.1), blurRadius: 10, offset: const Offset(0, 0))],
+          boxShadow: [BoxShadow(color: AppColors.vibrantEmerald.withAlpha(25), blurRadius: 10, offset: const Offset(0, 0))],
         ),
         child: Row(
           crossAxisAlignment: .start,
           children: [
             if (icon != null) icon!,
             8.horizontalSpace,
-            Text(title, style: AppTextStyles.w500_20()),
+            Expanded(
+              child: FittedBox(
+                fit: BoxFit.scaleDown,
+                alignment: Intl.getCurrentLocale() == 'ar' ? Alignment.centerRight : Alignment.centerLeft,
+                child: Text(title, textAlign: TextAlign.start, style: AppTextStyles.w500_20()),
+              ),
+            ),
           ],
         ),
       ),

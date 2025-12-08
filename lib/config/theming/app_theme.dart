@@ -40,7 +40,7 @@ class DarkEarthyTheme {
       brightness: Brightness.dark,
       primaryColor: vibrantEmerald,
       primaryColorDark: forestGreen,
-      primaryColorLight: vibrantEmerald.withOpacity(0.8),
+      primaryColorLight: vibrantEmerald.withValues(alpha:  0.8),
 
       // ColorScheme - the modern way to define colors
       colorScheme: const ColorScheme.dark(
@@ -101,14 +101,14 @@ class DarkEarthyTheme {
       // Input decoration theme (TextFields)
       inputDecorationTheme: InputDecorationTheme(
         filled: true,
-        fillColor: hunterGreen.withOpacity(0.7),
+        fillColor: hunterGreen.withValues(alpha: 0.7),
         border: OutlineInputBorder(borderRadius: BorderRadius.circular(8), borderSide: BorderSide.none),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(8),
           borderSide: const BorderSide(color: vibrantEmerald, width: 2),
         ),
         labelStyle: const TextStyle(color: lightText),
-        hintStyle: TextStyle(color: lightText.withOpacity(0.7)),
+        hintStyle: TextStyle(color: lightText.withValues(alpha: 0.7)),
         contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
       ),
 

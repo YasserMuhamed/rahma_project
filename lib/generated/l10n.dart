@@ -168,6 +168,16 @@ class S {
   String get qibla {
     return Intl.message('Qibla', name: 'qibla', desc: '', args: []);
   }
+
+  /// `Services`
+  String get services {
+    return Intl.message('Services', name: 'services', desc: '', args: []);
+  }
+
+  /// `Quraan`
+  String get quraan {
+    return Intl.message('Quraan', name: 'quraan', desc: '', args: []);
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

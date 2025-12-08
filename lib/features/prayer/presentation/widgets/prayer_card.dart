@@ -137,7 +137,7 @@ class _PrayerCardState extends State<PrayerCard> {
           end: Alignment.bottomRight,
           colors: [AppColors.vibrantEmerald, AppColors.forestGreen],
         ),
-        boxShadow: [BoxShadow(color: AppColors.vibrantEmerald.withOpacity(0.3), blurRadius: 10, offset: const Offset(0, 5))],
+        boxShadow: [BoxShadow(color: AppColors.vibrantEmerald.withValues(alpha: 0.3), blurRadius: 10, offset: const Offset(0, 5))],
       ),
       child: Stack(
         children: [
@@ -169,7 +169,7 @@ class _PrayerCardState extends State<PrayerCard> {
               children: [
                 Text(
                   S.of(context).next_prayer, // Add this to your l10n
-                  style: TextStyle(color: const Color(0xFFE8E8E8).withOpacity(0.8), fontSize: 14, fontWeight: FontWeight.w500),
+                  style: TextStyle(color: const Color(0xFFE8E8E8).withValues(alpha: 0.8), fontSize: 14, fontWeight: FontWeight.w500),
                 ),
                 const SizedBox(height: 12),
                 Row(
@@ -219,9 +219,9 @@ class _PrayerCardState extends State<PrayerCard> {
                   child: Container(
                     padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 20),
                     decoration: BoxDecoration(
-                      color: AppColors.pineNeedle.withOpacity(0.5),
+                      color: AppColors.pineNeedle.withValues(alpha: 0.5),
                       borderRadius: BorderRadius.circular(16),
-                      border: Border.all(color: Colors.white.withOpacity(0.1), width: 1),
+                      border: Border.all(color: Colors.white.withValues(alpha: 0.1), width: 1),
                     ),
                     child: Text(
                       timeRemaining != null ? formatDuration(timeRemaining!) : '--:--:--',
@@ -286,7 +286,7 @@ class _PrayerCardState extends State<PrayerCard> {
               Text(
                 name,
                 style: TextStyle(
-                  color: isNext ? const Color(0xFFFFFFFF) : const Color(0xFFE8E8E8).withOpacity(0.7),
+                  color: isNext ? const Color(0xFFFFFFFF) : const Color(0xFFE8E8E8).withValues(alpha: 0.7),
                   fontSize: 16,
                   fontWeight: isNext ? FontWeight.w600 : FontWeight.w400,
                 ),
@@ -296,7 +296,7 @@ class _PrayerCardState extends State<PrayerCard> {
           Text(
             formatToAmPm(time ?? '--:--'),
             style: TextStyle(
-              color: isNext ? const Color(0xFFFFFFFF) : const Color(0xFFE8E8E8).withOpacity(0.7),
+              color: isNext ? const Color(0xFFFFFFFF) : const Color(0xFFE8E8E8).withValues(alpha: 0.7),
               fontSize: 16,
               fontWeight: isNext ? FontWeight.w600 : FontWeight.w400,
               fontFeatures: const [FontFeature.tabularFigures()],
@@ -308,6 +308,6 @@ class _PrayerCardState extends State<PrayerCard> {
   }
 
   Widget _buildDivider() {
-    return Container(height: 1, margin: const EdgeInsets.symmetric(vertical: 4), color: Colors.white.withOpacity(0.1));
+    return Container(height: 1, margin: const EdgeInsets.symmetric(vertical: 4), color: Colors.white.withValues(alpha: 0.1));
   }
 }

@@ -57,13 +57,13 @@ class PrayerCardLoading extends StatelessWidget {
                           Container(
                             width: 100,
                             height: 16,
-                            decoration: BoxDecoration(color: Colors.white.withOpacity(0.2), borderRadius: BorderRadius.circular(4)),
+                            decoration: BoxDecoration(color: Colors.white.withValues(alpha: 0.2), borderRadius: BorderRadius.circular(4)),
                           ),
                           const SizedBox(height: 4),
                           Container(
                             width: 120,
                             height: 28,
-                            decoration: BoxDecoration(color: Colors.white.withOpacity(0.3), borderRadius: BorderRadius.circular(6)),
+                            decoration: BoxDecoration(color: Colors.white.withValues(alpha: 0.3), borderRadius: BorderRadius.circular(6)),
                           ),
                         ],
                       ),
@@ -77,14 +77,14 @@ class PrayerCardLoading extends StatelessWidget {
                     child: Container(
                       padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 20),
                       decoration: BoxDecoration(
-                        color: const Color(0xFF18230F).withOpacity(0.5),
+                        color: const Color(0xFF18230F).withValues(alpha: 0.5),
                         borderRadius: BorderRadius.circular(16),
-                        border: Border.all(color: Colors.white.withOpacity(0.1), width: 1),
+                        border: Border.all(color: Colors.white.withValues(alpha: 0.1), width: 1),
                       ),
                       child: Container(
                         width: 220,
                         height: 48,
-                        decoration: BoxDecoration(color: Colors.white.withOpacity(0.2), borderRadius: BorderRadius.circular(8)),
+                        decoration: BoxDecoration(color: Colors.white.withValues(alpha: 0.2), borderRadius: BorderRadius.circular(8)),
                       ),
                     ),
                   ),
@@ -129,7 +129,11 @@ class PrayerCardLoading extends StatelessWidget {
                               ),
                             ),
                             if (index < 4)
-                              Container(height: 1, margin: const EdgeInsets.symmetric(vertical: 4), color: Colors.white.withOpacity(0.1)),
+                              Container(
+                                height: 1,
+                                margin: const EdgeInsets.symmetric(vertical: 4),
+                                color: Colors.white.withValues(alpha: 0.1),
+                              ),
                           ],
                         );
                       }),
