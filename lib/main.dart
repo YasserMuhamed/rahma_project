@@ -23,7 +23,7 @@ void main() async {
   Hive.registerAdapter(AzkarEntityAdapter());
   await Hive.openBox<PrayerEntity>(HiveKeys.dailyPrayers);
   await Hive.openBox<String>(HiveKeys.azkarCategories);
-  await Hive.openBox<List<AzkarEntity>>(HiveKeys.azkar);
+  await Hive.openBox(HiveKeys.azkar);
 
   await Workmanager().initialize(callbackDispatcher);
 

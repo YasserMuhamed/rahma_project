@@ -7,6 +7,7 @@ import 'package:rahma_project/core/di/dependency_injection.dart';
 import 'package:rahma_project/core/helpers/extensions.dart';
 import 'package:rahma_project/features/azkar/domain/entities/azkar_entity.dart';
 import 'package:rahma_project/features/azkar/presentation/cubit/azkar_cubit.dart';
+import 'package:rahma_project/core/helpers/azkar_helpers.dart';
 
 class AzkarCategoryDetailsScreen extends StatelessWidget {
   const AzkarCategoryDetailsScreen({super.key, required this.category});
@@ -73,9 +74,9 @@ class AzkarCard extends StatelessWidget {
         crossAxisAlignment: .start,
         children: [
           SelectableText(
-            item.content,
+            item.formattedContent,
             textAlign: TextAlign.start,
-            style: AppTextStyles.w600_16().copyWith(color: Colors.white),
+            style: AppTextStyles.w600_16().copyWith(color: Colors.white, fontFamily: "UthmanicHafs", height: 1.5, fontSize: 24),
           ),
           SizedBox(height: 8),
           Row(

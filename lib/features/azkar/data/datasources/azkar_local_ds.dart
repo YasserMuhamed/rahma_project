@@ -39,14 +39,19 @@ class AzkarLocalDs {
   }
 
   Future<void> saveAzkarToHive(String category, List<AzkarEntity> azkar) async {
-    final box = Hive.box<List<AzkarEntity>>(HiveKeys.azkar);
+    final box = Hive.box(HiveKeys.azkar); // Changed from box<List<AzkarEntity>>
     await box.delete(category);
     await box.put(category, azkar);
   }
 
   Future<List<AzkarEntity>> getAzkarByCategoryFromHive(String category) async {
-    final box = Hive.box<List<AzkarEntity>>(HiveKeys.azkar);
-    var azkar = box.get(category) ?? [];
+    final box = Hive.box(HiveKeys.azkar); // Changed from box<List<AzkarEntity>>
+    final dynamic data = box.get(category);
+
+    if (data == null) return [];
+
+    final azkar = (data as List).cast<AzkarEntity>();
+
     Logger().e("azkar in category $category loaded from hive with length ${azkar.length}");
     return azkar;
   }

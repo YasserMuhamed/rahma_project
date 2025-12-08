@@ -3,12 +3,12 @@ import 'package:flutter/material.dart';
 class AppColors {
   AppColors._();
 
-  static const Color vibrantEmerald = Color(0xFF1F7D53);
-  static const Color forestGreen = Color(0xFF255F38);
-  static const Color hunterGreen = Color(0xFF27391C);
-  static const Color pineNeedle = Color(0xFF18230F);
-  static const Color pureWhite = Color(0xFFFFFFFF);
-  static const Color lightText = Color(0xFFE8E8E8);
+  // static const Color vibrantEmerald = Color(0xFF1F7D53);
+  // static const Color forestGreen = Color(0xFF255F38);
+  // static const Color hunterGreen = Color(0xFF27391C);
+  // static const Color pineNeedle = Color(0xFF18230F);
+  // static const Color pureWhite = Color(0xFFFFFFFF);
+  // static const Color lightText = Color(0xFFE8E8E8);
 
   // static const Color vibrantEmerald = Color(0xFF1E90FF); // vibrant electric blue
   // static const Color forestGreen = Color(0xFF1565C0); // deep ocean blue
@@ -30,26 +30,39 @@ class AppColors {
   // static const Color pineNeedle = Color(0xFF1A0E05); // near-black dark brown
   // static const Color pureWhite = Color(0xFFFFFFFF); // unchanged white
   // static const Color lightText = Color(0xFFD5C7B8); // light warm sand for contrast
+
+  static const Color vibrantEmerald = Color(0xFF1E3A8A); // bright royal blue
+  static const Color forestGreen = Color(0xFF162E6C); // deep sapphire blue
+  static const Color hunterGreen = Color(0xFF0F1F4D); // dark navy blue
+  static const Color pineNeedle = Color(0xFF0A132B); // near-black midnight blue
+  static const Color pureWhite = Color(0xFFFFFFFF); // pure white for contrast
+  static const Color lightText = Color(0xFFB0C4DE); // soft light steel blue
+
+  // static const Color vibrantEmerald = Color(0xFF6A0DAD); // vivid deep violet
+  // static const Color forestGreen = Color(0xFF4B0082); // rich dark purple
+  // static const Color hunterGreen = Color(0xFF330055); // very dark purple
+  // static const Color pineNeedle = Color(0xFF1A001F); // near-black violet
+  // static const Color pureWhite = Color(0xFFFFFFFF); // pure white for contrast
+  // static const Color lightText = Color(0xFFBDA0FF); // soft lavender for text
+
+  // static const Color vibrantEmerald = Color(0xFF8E6A21); // dark golden highlight
+  // static const Color forestGreen = Color(0xFF6A4F18); // deep rich matte gold
+  // static const Color hunterGreen = Color(0xFF4B370F); // dark antique gold
+  // static const Color pineNeedle = Color(0xFF2B1F08); // near-black brownish gold
+  // static const Color pureWhite = Color(0xFFFFFFFF); // pure white for contrast
+  // static const Color lightText = Color(0xFFE5D8B5); // soft pale gold text
   // ==================== PRIMARY COLORS ====================
   // Bright Blue - Most used for CTAs, buttons, links
   static const Color primaryBlue = Color(0xFF0A84FF); // iOS Blue / Bright Blue
-  static const Color primaryBlueDark = Color(
-    0xFF0A84FF,
-  ); // Same vibrant blue for dark mode
+  static const Color primaryBlueDark = Color(0xFF0A84FF); // Same vibrant blue for dark mode
 
   // ==================== SECONDARY/ACCENT COLORS ====================
-  static const Color successGreen = Color(
-    0xFF34C759,
-  ); // iOS Green - checkmarks, success
-  static const Color warningAmber = Color(
-    0xFFFFCC00,
-  ); // Yellow/Amber - highlights, ratings
+  static const Color successGreen = Color(0xFF34C759); // iOS Green - checkmarks, success
+  static const Color warningAmber = Color(0xFFFFCC00); // Yellow/Amber - highlights, ratings
 
   // ==================== BACKGROUND COLORS ====================
   // Light Mode
-  static const Color backgroundLight = Color(
-    0xFFF5F5F5,
-  ); // Light gray background
+  static const Color backgroundLight = Color(0xFFF5F5F5); // Light gray background
   static const Color surfaceLight = Color(0xFFFFFFFF); // Pure white cards
   static const Color cardLight = Color(0xFFFFFFFF);
 
@@ -61,18 +74,12 @@ class AppColors {
   // ==================== TEXT COLORS ====================
   // Light Mode - MOST USED for descriptions/body text
   static const Color textPrimaryLight = Color(0xFF000000); // Pure black
-  static const Color textSecondaryLight = Color(
-    0xFF8E8E93,
-  ); // Gray - descriptions, labels
-  static const Color textTertiaryLight = Color(
-    0xFFC7C7CC,
-  ); // Light gray - placeholders
+  static const Color textSecondaryLight = Color(0xFF8E8E93); // Gray - descriptions, labels
+  static const Color textTertiaryLight = Color(0xFFC7C7CC); // Light gray - placeholders
 
   // Dark Mode
   static const Color textPrimaryDark = Color(0xFFFFFFFF); // Pure white
-  static const Color textSecondaryDark = Color(
-    0xFF8E8E93,
-  ); // Gray - same as light mode
+  static const Color textSecondaryDark = Color(0xFF8E8E93); // Gray - same as light mode
   static const Color textTertiaryDark = Color(0xFF48484A); // Dark gray
 
   // ==================== BORDER & DIVIDER COLORS ====================
