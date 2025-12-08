@@ -19,5 +19,6 @@
   "azkar": "Azkar",
   "qibla": "Qibla",
   "services": "Services",
-  "quraan": "Quraan"
+  "quraan": "Quraan",
+  "repeat": "Repeat {count}"
 }

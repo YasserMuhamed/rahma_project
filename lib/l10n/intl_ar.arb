@@ -19,5 +19,6 @@
   "azkar": "أذكار",
   "qibla": "القبلة",
   "services": "الخدمات",
-  "quraan": "القرآن"
+  "quraan": "القرآن",
+  "repeat": "تكرار {count}"
 }

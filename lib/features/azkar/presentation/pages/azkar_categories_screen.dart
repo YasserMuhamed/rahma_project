@@ -18,7 +18,7 @@ class AzkarCategoriesScreen extends StatelessWidget {
         body: SafeArea(
           child: CustomScrollView(
             slivers: [
-              SliverAppBar(flexibleSpace: FlexibleSpaceBar(title: Text(context.t.azkar))),
+              SliverAppBar(title: Text(context.t.azkar)),
               SliverPadding(
                 padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
                 sliver: SliverLayoutBuilder(

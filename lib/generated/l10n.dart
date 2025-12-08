@@ -178,6 +178,16 @@ class S {
   String get quraan {
     return Intl.message('Quraan', name: 'quraan', desc: '', args: []);
   }
+
+  /// `Repeat {count}`
+  String repeat(Object count) {
+    return Intl.message(
+      'Repeat $count',
+      name: 'repeat',
+      desc: '',
+      args: [count],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

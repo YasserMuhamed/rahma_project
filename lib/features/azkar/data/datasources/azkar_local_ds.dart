@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/services.dart';
 import 'package:hive/hive.dart';
+import 'package:logger/logger.dart';
 import 'package:rahma_project/core/helpers/hive_keys.dart';
 import 'package:rahma_project/features/azkar/data/models/azkar_model.dart';
 import 'package:rahma_project/features/azkar/domain/entities/azkar_entity.dart';
@@ -32,7 +33,7 @@ class AzkarLocalDs {
     final azkarModel = AzkarModel.fromJson(data);
 
     if (azkarModel.azkarData.containsKey(category)) {
-      return azkarModel.azkarData[category] as List<AzkarEntity>;
+      return azkarModel.azkarData[category] ?? [];
     }
     return [];
   }
@@ -45,6 +46,8 @@ class AzkarLocalDs {
 
   Future<List<AzkarEntity>> getAzkarByCategoryFromHive(String category) async {
     final box = Hive.box<List<AzkarEntity>>(HiveKeys.azkar);
-    return box.get(category) ?? [];
+    var azkar = box.get(category) ?? [];
+    Logger().e("azkar in category $category loaded from hive with length ${azkar.length}");
+    return azkar;
   }
 }
