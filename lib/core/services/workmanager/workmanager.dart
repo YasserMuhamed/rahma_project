@@ -6,7 +6,8 @@ void callbackDispatcher() {
   Workmanager().executeTask((task, inputData) async {
     switch (task) {
       case "fetchDailyPrayers":
-        PrayerRepositoryImplementation prayerRepositoryImplementation = getIt<PrayerRepositoryImplementation>();
+        PrayerRepositoryImplementation prayerRepositoryImplementation =
+            getIt<PrayerRepositoryImplementation>();
         await prayerRepositoryImplementation.getDailyPrayer(forceRefresh: true);
         return Future.value(true);
     }
@@ -14,4 +15,3 @@ void callbackDispatcher() {
     return Future.value(false);
   });
 }
-

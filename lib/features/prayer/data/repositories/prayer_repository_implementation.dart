@@ -15,10 +15,15 @@ class PrayerRepositoryImplementation implements PrayerRepository {
 
   static const double significantDistanceKm = 30.0;
 
-  PrayerRepositoryImplementation({required this.prayerLocalDs, required this.prayerRemoteDs});
+  PrayerRepositoryImplementation({
+    required this.prayerLocalDs,
+    required this.prayerRemoteDs,
+  });
 
   @override
-  Future<Either<Failure, PrayerEntity>> getDailyPrayer({bool forceRefresh = false}) async {
+  Future<Either<Failure, PrayerEntity>> getDailyPrayer({
+    bool forceRefresh = false,
+  }) async {
     if (forceRefresh) {
       return await getRemotePrayer();
     }
@@ -33,7 +38,9 @@ class PrayerRepositoryImplementation implements PrayerRepository {
   Future<Either<Failure, PrayerEntity>> getRemotePrayer() async {
     try {
       Position targetLocation = await determinePosition();
-      PrayerEntity prayer = await prayerRemoteDs.getPrayer(LatLng(targetLocation.latitude, targetLocation.longitude));
+      PrayerEntity prayer = await prayerRemoteDs.getPrayer(
+        LatLng(targetLocation.latitude, targetLocation.longitude),
+      );
       return Right(prayer);
     } catch (e) {
       if (e is DioException) {
@@ -54,7 +61,9 @@ class PrayerRepositoryImplementation implements PrayerRepository {
     if (storedDate == null) return false;
 
     final now = DateTime.now();
-    return storedDate.year == now.year && storedDate.month == now.month && storedDate.day == now.day;
+    return storedDate.year == now.year &&
+        storedDate.month == now.month &&
+        storedDate.day == now.day;
   }
 
   /// Checks if location changed by more than 10km

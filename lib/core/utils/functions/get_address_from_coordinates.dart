@@ -1,8 +1,14 @@
 import 'package:geocoding/geocoding.dart';
 
-Future<String> getAddressFromCoordinates(double latitude, double longitude) async {
+Future<String> getAddressFromCoordinates(
+  double latitude,
+  double longitude,
+) async {
   try {
-    final List<Placemark> placemarks = await placemarkFromCoordinates(latitude, longitude);
+    final List<Placemark> placemarks = await placemarkFromCoordinates(
+      latitude,
+      longitude,
+    );
     if (placemarks.isEmpty) return '';
 
     final p = placemarks.first;

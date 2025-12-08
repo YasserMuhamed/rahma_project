@@ -13,7 +13,10 @@ class RetryWidget extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text(message),
-          TextButton(onPressed: onRetry != null ? () => onRetry!() : null, child: Text(S.of(context).retry)),
+          TextButton(
+            onPressed: onRetry != null ? () => onRetry!() : null,
+            child: Text(S.of(context).retry),
+          ),
         ],
       ),
     );

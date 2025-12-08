@@ -15,10 +15,17 @@ class PrayerCubit extends Cubit<PrayerState> {
   Future<void> loadPrayersWithUserLocation({bool forceRefresh = false}) async {
     emit(PrayerLoading());
 
-    final result = await prayerRepository.getDailyPrayer(forceRefresh: forceRefresh);
+    final result = await prayerRepository.getDailyPrayer(
+      forceRefresh: forceRefresh,
+    );
 
-    result.fold((failure) => emit(PrayerError(message: failure.error)), (prayer) async {
-      final address = await getAddressFromCoordinates(prayer.location?.latitude ?? 0, prayer.location?.longitude ?? 0);
+    result.fold((failure) => emit(PrayerError(message: failure.error)), (
+      prayer,
+    ) async {
+      final address = await getAddressFromCoordinates(
+        prayer.location?.latitude ?? 0,
+        prayer.location?.longitude ?? 0,
+      );
 
       emit(PrayerLoaded(prayer: prayer, address: address));
     });
@@ -29,8 +36,13 @@ class PrayerCubit extends Cubit<PrayerState> {
 
     final result = await prayerRepository.getDailyPrayer();
 
-    result.fold((failure) => emit(PrayerError(message: failure.error)), (prayer) async {
-      final address = await getAddressFromCoordinates(prayer.location?.latitude ?? 0, prayer.location?.longitude ?? 0);
+    result.fold((failure) => emit(PrayerError(message: failure.error)), (
+      prayer,
+    ) async {
+      final address = await getAddressFromCoordinates(
+        prayer.location?.latitude ?? 0,
+        prayer.location?.longitude ?? 0,
+      );
       emit(PrayerLoaded(prayer: prayer, address: address));
     });
   }

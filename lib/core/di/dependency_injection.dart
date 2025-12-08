@@ -19,9 +19,14 @@ Future<void> setupGetIt() async {
   getIt.registerSingleton<PrayerRemoteDs>(PrayerRemoteDs(dio: dio));
   getIt.registerSingleton<PrayerLocalDs>(PrayerLocalDs());
   getIt.registerSingleton<PrayerRepository>(
-    PrayerRepositoryImplementation(prayerLocalDs: getIt<PrayerLocalDs>(), prayerRemoteDs: getIt<PrayerRemoteDs>()),
+    PrayerRepositoryImplementation(
+      prayerLocalDs: getIt<PrayerLocalDs>(),
+      prayerRemoteDs: getIt<PrayerRemoteDs>(),
+    ),
   );
-  getIt.registerFactory<PrayerCubit>(() => PrayerCubit(prayerRepository: getIt<PrayerRepository>()));
+  getIt.registerFactory<PrayerCubit>(
+    () => PrayerCubit(prayerRepository: getIt<PrayerRepository>()),
+  );
   getIt.registerFactory<NavigationCubit>(() => NavigationCubit());
   getIt.registerSingleton<ThemeCubit>(ThemeCubit());
   getIt.registerSingleton<LocaleCubit>(LocaleCubit());

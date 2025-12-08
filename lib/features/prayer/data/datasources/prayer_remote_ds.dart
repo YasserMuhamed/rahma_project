@@ -17,7 +17,11 @@ class PrayerRemoteDs {
     final dateString = DateFormat('dd-MM-yyyy', 'en_US').format(now);
     final result = await dio.get(
       "https://api.aladhan.com/v1/timings/$dateString",
-      queryParameters: {'latitude': location.latitude, 'longitude': location.longitude, 'method': 5},
+      queryParameters: {
+        'latitude': location.latitude,
+        'longitude': location.longitude,
+        'method': 5,
+      },
     );
 
     PrayerEntity prayer = DailyPrayerResponse.fromJson(result.data);

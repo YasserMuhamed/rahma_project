@@ -5,6 +5,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hive_flutter/adapters.dart';
 import 'package:rahma_project/core/di/dependency_injection.dart';
 import 'package:rahma_project/core/observer/bloc_observer.dart';
+import 'package:rahma_project/features/azkar/data/datasources/azkar_local_ds.dart';
+import 'package:rahma_project/features/azkar/domain/entities/azkar_entity.dart';
 import 'package:rahma_project/features/prayer/domain/entities/prayer_entity.dart';
 import 'package:rahma_project/rahma_app.dart';
 import 'package:rahma_project/core/helpers/hive_keys.dart';
@@ -18,17 +20,11 @@ void main() async {
   Hive.registerAdapter(PrayerEntityAdapter());
   Hive.registerAdapter(PrayerTimingsAdapter());
   Hive.registerAdapter(PrayerDateAdapter());
-  Hive.registerAdapter(HijriDateAdapter());
-  Hive.registerAdapter(HijriMonthAdapter());
-  Hive.registerAdapter(HijriWeekdayAdapter());
-  Hive.registerAdapter(GregorianDateAdapter());
-  Hive.registerAdapter(GregorianMonthAdapter());
-  Hive.registerAdapter(GregorianWeekdayAdapter());
   Hive.registerAdapter(PrayerLocationAdapter());
+  Hive.registerAdapter(AzkarEntityAdapter());
   await Hive.openBox<PrayerEntity>(HiveKeys.dailyPrayers);
 
   await Workmanager().initialize(callbackDispatcher);
-
   await Future.wait<void>([ScreenUtil.ensureScreenSize(), setupGetIt()]);
 
   Bloc.observer = MyBlocObserver();

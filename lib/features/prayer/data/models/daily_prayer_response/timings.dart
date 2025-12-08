@@ -88,6 +88,18 @@ class Timings extends Equatable {
 
   @override
   List<Object?> get props {
-    return [fajr, sunrise, dhuhr, asr, sunset, maghrib, isha, imsak, midnight, firstthird, lastthird];
+    return [
+      fajr,
+      sunrise,
+      dhuhr,
+      asr,
+      sunset,
+      maghrib,
+      isha,
+      imsak,
+      midnight,
+      firstthird,
+      lastthird,
+    ];
   }
 }

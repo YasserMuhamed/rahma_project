@@ -16,7 +16,10 @@ class HomeSliverAppBar extends StatelessWidget {
         builder: (BuildContext context, BoxConstraints constraints) {
           return FlexibleSpaceBar(
             centerTitle: true,
-            title: Text(S.of(context).app_name, style: TextStyle(fontWeight: FontWeight.w600)),
+            title: Text(
+              S.of(context).app_name,
+              style: TextStyle(fontWeight: FontWeight.w600),
+            ),
             background: Container(
               decoration: BoxDecoration(
                 gradient: LinearGradient(
@@ -34,7 +37,10 @@ class HomeSliverAppBar extends StatelessWidget {
                     child: Container(
                       width: 120.w,
                       height: 120.w,
-                      decoration: BoxDecoration(shape: BoxShape.circle, color: Colors.white.withOpacity(0.05)),
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: Colors.white.withOpacity(0.05),
+                      ),
                     ),
                   ),
                   Positioned(
@@ -43,7 +49,10 @@ class HomeSliverAppBar extends StatelessWidget {
                     child: Container(
                       width: 80.w,
                       height: 80.w,
-                      decoration: BoxDecoration(shape: BoxShape.circle, color: Colors.white.withOpacity(0.08)),
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: Colors.white.withOpacity(0.08),
+                      ),
                     ),
                   ),
                   Positioned.fill(
@@ -61,9 +70,16 @@ class HomeSliverAppBar extends StatelessWidget {
                             decoration: BoxDecoration(
                               color: Colors.white.withOpacity(0.15),
                               borderRadius: BorderRadius.circular(14.r),
-                              border: Border.all(color: Colors.white.withValues(alpha: 0.2), width: 1.5.w),
+                              border: Border.all(
+                                color: Colors.white.withValues(alpha: 0.2),
+                                width: 1.5.w,
+                              ),
                             ),
-                            child: Icon(Icons.mosque_outlined, color: Colors.white, size: 32.sp),
+                            child: Icon(
+                              Icons.mosque_outlined,
+                              color: Colors.white,
+                              size: 32.sp,
+                            ),
                           ),
 
                           // App name (only shows when expanded)
