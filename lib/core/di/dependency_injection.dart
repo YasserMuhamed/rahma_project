@@ -3,6 +3,10 @@ import 'package:rahma_project/config/cubits/theme/theme_cubit.dart';
 import 'package:get_it/get_it.dart';
 import 'package:rahma_project/core/api/dio_factory.dart';
 import 'package:rahma_project/config/cubits/translation/localization_cubit.dart';
+import 'package:rahma_project/features/azkar/presentation/cubit/azkar_cubit.dart';
+import 'package:rahma_project/features/azkar/data/datasources/azkar_local_ds.dart';
+import 'package:rahma_project/features/azkar/data/repositories/azkar_repository_implementation.dart';
+import 'package:rahma_project/features/azkar/domain/repositories/azkar_repository.dart';
 import 'package:rahma_project/features/prayer/data/datasources/prayer_local_ds.dart';
 import 'package:rahma_project/features/prayer/data/datasources/prayer_remote_ds.dart';
 import 'package:rahma_project/features/prayer/data/repositories/prayer_repository_implementation.dart';
@@ -18,15 +22,13 @@ Future<void> setupGetIt() async {
 
   getIt.registerSingleton<PrayerRemoteDs>(PrayerRemoteDs(dio: dio));
   getIt.registerSingleton<PrayerLocalDs>(PrayerLocalDs());
+  getIt.registerSingleton<AzkarLocalDs>(AzkarLocalDs());
   getIt.registerSingleton<PrayerRepository>(
-    PrayerRepositoryImplementation(
-      prayerLocalDs: getIt<PrayerLocalDs>(),
-      prayerRemoteDs: getIt<PrayerRemoteDs>(),
-    ),
+    PrayerRepositoryImplementation(prayerLocalDs: getIt<PrayerLocalDs>(), prayerRemoteDs: getIt<PrayerRemoteDs>()),
   );
-  getIt.registerFactory<PrayerCubit>(
-    () => PrayerCubit(prayerRepository: getIt<PrayerRepository>()),
-  );
+  getIt.registerSingleton<AzkarRepository>(AzkarRepositoryImplementation(azkarLocalDs: getIt<AzkarLocalDs>()));
+  getIt.registerFactory<PrayerCubit>(() => PrayerCubit(prayerRepository: getIt<PrayerRepository>()));
+  getIt.registerFactory<AzkarCubit>(() => AzkarCubit(azkarRepository: getIt<AzkarRepository>()));
   getIt.registerFactory<NavigationCubit>(() => NavigationCubit());
   getIt.registerSingleton<ThemeCubit>(ThemeCubit());
   getIt.registerSingleton<LocaleCubit>(LocaleCubit());

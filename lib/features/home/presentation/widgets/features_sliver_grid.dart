@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
+import 'package:go_router/go_router.dart';
+import 'package:rahma_project/config/routing/app_routes.dart';
 import 'package:rahma_project/core/helpers/extensions.dart';
 import 'package:rahma_project/features/home/presentation/widgets/feature_card.dart';
 
@@ -11,24 +14,26 @@ class FeaturesSliverGrid extends StatelessWidget {
     return SliverPadding(
       padding: const EdgeInsets.symmetric(horizontal: 16),
       sliver: SliverMasonryGrid(
-        gridDelegate: SliverSimpleGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 2,
-        ),
+        gridDelegate: SliverSimpleGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
         mainAxisSpacing: 8,
         crossAxisSpacing: 16,
         delegate: SliverChildListDelegate([
-          FeatureCard(title: context.t.azkar, icon: Icon(Icons.book)),
+          FeatureCard(
+            title: context.t.azkar,
+            icon: Icon(Icons.book, size: 20.sp),
+            onTap: () => GoRouter.of(context).push(Routes.azkarCategoriesScreen),
+          ),
           FeatureCard(
             title: context.t.qibla,
-            icon: Icon(Icons.navigation_outlined),
+            icon: Icon(Icons.navigation_outlined, size: 20.sp),
           ),
           FeatureCard(
             title: context.t.prayer_times,
-            icon: Icon(Icons.watch_later_outlined),
+            icon: Icon(Icons.watch_later_outlined, size: 20.sp),
           ),
           FeatureCard(
             title: context.t.quraan,
-            icon: Icon(Icons.menu_book_rounded),
+            icon: Icon(Icons.menu_book_rounded, size: 20.sp),
           ),
         ]),
       ),

@@ -28,30 +28,18 @@ class FeatureCard extends StatelessWidget {
             begin: Alignment.bottomLeft,
             end: Alignment.topRight,
           ),
-          boxShadow: [
-            BoxShadow(
-              color: AppColors.vibrantEmerald.withAlpha(25),
-              blurRadius: 10,
-              offset: const Offset(0, 0),
-            ),
-          ],
+          boxShadow: [BoxShadow(color: AppColors.vibrantEmerald.withAlpha(25), blurRadius: 10, offset: const Offset(0, 0))],
         ),
         child: Row(
-          crossAxisAlignment: .start,
+          crossAxisAlignment: .center,
           children: [
             if (icon != null) icon!,
             8.horizontalSpace,
             Expanded(
               child: FittedBox(
                 fit: BoxFit.scaleDown,
-                alignment: Intl.getCurrentLocale() == 'ar'
-                    ? Alignment.centerRight
-                    : Alignment.centerLeft,
-                child: Text(
-                  title,
-                  textAlign: TextAlign.start,
-                  style: AppTextStyles.w500_20(),
-                ),
+                alignment: Intl.getCurrentLocale() == 'ar' ? Alignment.centerRight : Alignment.centerLeft,
+                child: Text(title, textAlign: TextAlign.start, style: AppTextStyles.w500_20()),
               ),
             ),
           ],
