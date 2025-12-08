@@ -1,0 +1,19 @@
+{
+  "previous": "Previous",
+  "app_name": "Rahma",
+  "next_prayer": "Next Prayer",
+  "fajr": "Fajr",
+  "sunrise": "Sunrise",
+  "dhuhr": "Dhuhr",
+  "asr": "Asr",
+  "maghrib": "Maghrib",
+  "isha": "Isha",
+  "loading": "Loading...",
+  "prayer_times": "Prayer Times",
+  "update_prayer_times": "Update with Current Location",
+  "retry": "Retry",
+  "location_changed": "Location Changed",
+  "location_changed_message": "Your location has changed. Do you want to update prayer times for the new location?",
+  "ok": "OK",
+  "cancel": "Cancel"
+}
