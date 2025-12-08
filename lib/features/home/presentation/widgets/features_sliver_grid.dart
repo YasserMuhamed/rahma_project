@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:go_router/go_router.dart';
 import 'package:rahma_project/config/routing/app_routes.dart';
@@ -18,23 +17,10 @@ class FeaturesSliverGrid extends StatelessWidget {
         mainAxisSpacing: 8,
         crossAxisSpacing: 16,
         delegate: SliverChildListDelegate([
-          FeatureCard(
-            title: context.t.azkar,
-            icon: Icon(Icons.book, size: 20.sp),
-            onTap: () => GoRouter.of(context).push(Routes.azkarCategoriesScreen),
-          ),
-          FeatureCard(
-            title: context.t.qibla,
-            icon: Icon(Icons.navigation_outlined, size: 20.sp),
-          ),
-          FeatureCard(
-            title: context.t.prayer_times,
-            icon: Icon(Icons.watch_later_outlined, size: 20.sp),
-          ),
-          FeatureCard(
-            title: context.t.quraan,
-            icon: Icon(Icons.menu_book_rounded, size: 20.sp),
-          ),
+          FeatureCard(title: context.t.azkar, icon: Icon(Icons.book), onTap: () => GoRouter.of(context).push(Routes.azkarCategoriesScreen)),
+          FeatureCard(title: context.t.qibla, icon: Icon(Icons.navigation_outlined)),
+          FeatureCard(title: context.t.prayer_times, icon: Icon(Icons.watch_later_outlined)),
+          FeatureCard(title: context.t.quraan, icon: Icon(Icons.menu_book_rounded)),
         ]),
       ),
     );

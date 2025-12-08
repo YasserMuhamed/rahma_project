@@ -14,8 +14,8 @@ class FeatureCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {
-        HapticFeedback.lightImpact();
+      onTap: () async {
+        await HapticFeedback.lightImpact();
         if (onTap != null) onTap!();
       },
       child: Container(

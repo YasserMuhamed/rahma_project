@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
+import 'package:rahma_project/config/routing/app_routes.dart';
 import 'package:rahma_project/config/theming/app_text_styles.dart';
 import 'package:rahma_project/core/di/dependency_injection.dart';
 import 'package:rahma_project/core/helpers/extensions.dart';
@@ -22,7 +23,7 @@ class AzkarCategoriesScreen extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
                 sliver: SliverLayoutBuilder(
                   builder: (context, constraints) {
-                    final crossAxisCount = constraints.crossAxisExtent > 650 ? 2 : 1;
+                    final crossAxisCount = constraints.crossAxisExtent > 768 ? 2 : 1;
 
                     return BlocBuilder<AzkarCubit, AzkarState>(
                       buildWhen: (previous, current) {
@@ -37,7 +38,7 @@ class AzkarCategoriesScreen extends StatelessWidget {
                           return SliverMasonryGrid.count(
                             crossAxisCount: crossAxisCount,
                             childCount: state.azkarCategories.length,
-                            itemBuilder: (context, index) => AzkarCard(title: state.azkarCategories[index]),
+                            itemBuilder: (context, index) => AzkarCategoryCard(title: state.azkarCategories[index]),
                             mainAxisSpacing: 8,
                             crossAxisSpacing: 16,
                           );
@@ -56,19 +57,22 @@ class AzkarCategoriesScreen extends StatelessWidget {
   }
 }
 
-class AzkarCard extends StatelessWidget {
-  const AzkarCard({super.key, required this.title});
+class AzkarCategoryCard extends StatelessWidget {
+  const AzkarCategoryCard({super.key, required this.title});
   final String title;
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.all(16),
-      decoration: BoxDecoration(borderRadius: BorderRadius.circular(16), color: Theme.of(context).primaryColor),
-      child: Center(
-        child: FittedBox(
-          fit: BoxFit.scaleDown,
-          child: Text(title, style: AppTextStyles.w600_16().copyWith(color: Colors.white)),
+    return InkWell(
+      onTap: () => context.push(Routes.azkarDetailsScreen, extra: title),
+      child: Container(
+        padding: const EdgeInsets.all(16),
+        decoration: BoxDecoration(borderRadius: BorderRadius.circular(16), color: Theme.of(context).primaryColor),
+        child: Center(
+          child: FittedBox(
+            fit: BoxFit.scaleDown,
+            child: Text(title, style: AppTextStyles.w600_16().copyWith(color: Colors.white)),
+          ),
         ),
       ),
     );

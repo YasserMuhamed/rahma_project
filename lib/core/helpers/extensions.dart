@@ -3,32 +3,60 @@ import 'package:flutter/widgets.dart';
 
 /// Extension to simplify navigation using BuildContext.
 /// Provides helper methods for common navigation actions.
-extension Navigation on BuildContext {
-  /// Pushes a named route onto the navigator.
-  Future<dynamic> pushNamed(String routeName, {Object? arguments}) {
-    return Navigator.of(this).pushNamed(routeName, arguments: arguments);
+import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+
+extension GoNavigation on BuildContext {
+  /// Navigates to a new location. This replaces the entire navigation stack
+  /// with the new route. Used for navigation flows that require a complete reset
+  /// (e.g., logging in or out, or deep-linking).
+  ///
+  /// Corresponds roughly to the traditional `pushNamedAndRemoveUntil` behavior.
+  void go(String location, {Object? extra}) {
+    GoRouter.of(this).go(location, extra: extra);
   }
 
-  /// Replaces the current route by pushing a named route and removing the previous one.
-  Future<dynamic> pushReplacementNamed(String routeName, {Object? arguments}) {
-    return Navigator.of(
-      this,
-    ).pushReplacementNamed(routeName, arguments: arguments);
+  /// Navigates to a new location by name. This replaces the entire stack.
+  void goNamed(String routeName, {Object? extra}) {
+    GoRouter.of(this).goNamed(routeName, extra: extra);
   }
 
-  /// Pushes a named route and removes routes until the predicate returns true.
-  Future<dynamic> pushNamedAndRemoveUntil(
-    String routeName, {
-    Object? arguments,
-    required RoutePredicate predicate,
-  }) {
-    return Navigator.of(
-      this,
-    ).pushNamedAndRemoveUntil(routeName, predicate, arguments: arguments);
+  /// Adds a new route on top of the current route stack.
+  /// The current route is preserved, allowing the user to navigate back.
+  ///
+  /// Corresponds to the traditional `pushNamed` behavior.
+  void push(String location, {Object? extra}) {
+    GoRouter.of(this).push(location, extra: extra);
+  }
+
+  /// Adds a new named route on top of the current route stack.
+  void pushNamed(String routeName, {Object? extra}) {
+    GoRouter.of(this).pushNamed(routeName, extra: extra);
+  }
+
+  /// Replaces the top-most route in the stack with a new route.
+  /// The user cannot navigate back to the previous route.
+  ///
+  /// Corresponds to the traditional `pushReplacementNamed` behavior.
+  void replace(String location, {Object? extra}) {
+    GoRouter.of(this).replace(location, extra: extra);
+  }
+
+  /// Replaces the top-most named route in the stack with a new named route.
+  void replaceNamed(String routeName, {Object? extra}) {
+    GoRouter.of(this).replaceNamed(routeName, extra: extra);
   }
 
   /// Pops the top-most route off the navigator.
-  void pop<T extends Object?>([T? result]) => Navigator.of(this).pop(result);
+  /// Note: GoRouter's pop does not take a result parameter like the traditional Navigator.
+  void pop() {
+    GoRouter.of(this).pop();
+  }
+
+  /// Checks if the current route can be popped off the navigator.
+  bool canPop() {
+    return GoRouter.of(this).canPop();
+  }
 }
 
 /// Extension to easily access MediaQuery properties from BuildContext.
@@ -75,17 +103,10 @@ extension StringToLocaleHelper on String {
       case 2:
         return localeList.last.length ==
                 4 // scriptCode length is 4
-            ? Locale.fromSubtags(
-                languageCode: localeList.first,
-                scriptCode: localeList.last,
-              )
+            ? Locale.fromSubtags(languageCode: localeList.first, scriptCode: localeList.last)
             : Locale(localeList.first, localeList.last);
       case 3:
-        return Locale.fromSubtags(
-          languageCode: localeList.first,
-          scriptCode: localeList[1],
-          countryCode: localeList.last,
-        );
+        return Locale.fromSubtags(languageCode: localeList.first, scriptCode: localeList[1], countryCode: localeList.last);
       default:
         return Locale(localeList.first);
     }

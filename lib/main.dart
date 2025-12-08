@@ -22,6 +22,8 @@ void main() async {
   Hive.registerAdapter(PrayerLocationAdapter());
   Hive.registerAdapter(AzkarEntityAdapter());
   await Hive.openBox<PrayerEntity>(HiveKeys.dailyPrayers);
+  await Hive.openBox<String>(HiveKeys.azkarCategories);
+  await Hive.openBox<List<AzkarEntity>>(HiveKeys.azkar);
 
   await Workmanager().initialize(callbackDispatcher);
 

@@ -13,17 +13,8 @@ class AzkarEntity {
   @HiveField(3)
   final String content;
 
-  const AzkarEntity({
-    required this.category,
-    required this.count,
-    required this.description,
-    required this.content,
-  });
+  const AzkarEntity({required this.category, required this.count, required this.description, required this.content});
 
-  factory AzkarEntity.fromJson(Map<String, dynamic> json) => AzkarEntity(
-    category: json['category'],
-    count: json['count'],
-    description: json['description'],
-    content: json['content'],
-  );
+  factory AzkarEntity.fromJson(Map<String, dynamic> json) =>
+      AzkarEntity(category: json['category'], count: json['count'], description: json['description'], content: json['content']);
 }
