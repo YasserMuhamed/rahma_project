@@ -9,7 +9,7 @@ import 'package:rahma_project/config/theming/app_text_size.dart';
 import 'package:rahma_project/core/helpers/extensions.dart';
 import 'package:rahma_project/core/helpers/latlng.dart';
 import 'package:rahma_project/core/utils/functions/determine_current_location.dart';
-import 'package:rahma_project/features/quibla/presentation/cubit/quibla_calculations.dart';
+import 'package:rahma_project/features/quibla/presentation/manager/quibla_calculations.dart';
 import 'package:rahma_project/features/quibla/presentation/pages/quibla_compass_painter.dart';
 import 'package:rahma_project/features/quibla/presentation/widgets/neumorphism.dart';
 
