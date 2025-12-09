@@ -188,6 +188,46 @@ class S {
       args: [count],
     );
   }
+
+  /// `Rotate to align the arrows`
+  String get rotate_to_align_arrows {
+    return Intl.message(
+      'Rotate to align the arrows',
+      name: 'rotate_to_align_arrows',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Aligned with Qibla ✓`
+  String get aligned_with_qibla {
+    return Intl.message(
+      'Aligned with Qibla ✓',
+      name: 'aligned_with_qibla',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Qibla: {angle}°`
+  String quibla_angle(Object angle) {
+    return Intl.message(
+      'Qibla: $angle°',
+      name: 'quibla_angle',
+      desc: '',
+      args: [angle],
+    );
+  }
+
+  /// `Off {angle}°`
+  String off_angle(Object angle) {
+    return Intl.message(
+      'Off $angle°',
+      name: 'off_angle',
+      desc: '',
+      args: [angle],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

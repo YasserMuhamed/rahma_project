@@ -1,3 +1,5 @@
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+
 class AppTextSizes {
   static double fontSize10 = 10;
   static double fontSize12 = 12;
@@ -9,4 +11,10 @@ class AppTextSizes {
   static double fontSize28 = 28;
   static double fontSize30 = 30;
   static double fontSize32 = 32;
+}
+
+double safeSp(double size, {double maxScaleFactor = 1.2}) {
+  final scale = ScreenUtil().scaleText;
+  final safeScale = scale > maxScaleFactor ? maxScaleFactor : scale;
+  return size * safeScale;
 }

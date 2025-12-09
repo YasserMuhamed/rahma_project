@@ -22,32 +22,52 @@ class _HomeScreenState extends State<HomeScreen> {
     super.initState();
   }
 
+  bool _hasVibrated = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: RefreshIndicator.adaptive(
-          onRefresh: () {
-            HapticFeedback.lightImpact();
-            return context.read<PrayerCubit>().refresh();
+        child: NotificationListener<OverscrollIndicatorNotification>(
+          onNotification: (notification) {
+            notification.disallowIndicator(); // Optional: removes glow effect
+            return false;
           },
-          // 💡 FIX 1: CustomScrollView is now the main layout widget
-          child: CustomScrollView(
-            slivers: [
-              const HomeSliverAppBar(),
-              SliverToBoxAdapter(child: SizedBox(height: 16)),
-              SliverLayoutBuilder(
-                builder: (context, constraints) {
-                  final bool isTabletLayout = constraints.crossAxisExtent > 768;
-                  if (isTabletLayout) {
-                    return HomeTabletContent();
-                  } else {
-                    return HomeMobileContent();
-                  }
-                },
+          child: NotificationListener<ScrollNotification>(
+            onNotification: (notification) {
+              if (notification.metrics.pixels <= notification.metrics.minScrollExtent - 80) {
+                if (!_hasVibrated) {
+                  HapticFeedback.heavyImpact();
+                  setState(() => _hasVibrated = true);
+                }
+              } else if (notification.metrics.pixels > notification.metrics.minScrollExtent - 50) {
+                setState(() => _hasVibrated = false);
+              }
+              return false;
+            },
+            child: RefreshIndicator.adaptive(
+              onRefresh: () {
+                return context.read<PrayerCubit>().refresh();
+              },
+              // 💡 FIX 1: CustomScrollView is now the main layout widget
+              child: CustomScrollView(
+                slivers: [
+                  const HomeSliverAppBar(),
+                  SliverToBoxAdapter(child: SizedBox(height: 16)),
+                  SliverLayoutBuilder(
+                    builder: (context, constraints) {
+                      final bool isTabletLayout = constraints.crossAxisExtent > 768;
+                      if (isTabletLayout) {
+                        return HomeTabletContent();
+                      } else {
+                        return HomeMobileContent();
+                      }
+                    },
+                  ),
+                  SliverToBoxAdapter(child: SizedBox(height: 16)),
+                ],
               ),
-              SliverToBoxAdapter(child: SizedBox(height: 16)),
-            ],
+            ),
           ),
         ),
       ),

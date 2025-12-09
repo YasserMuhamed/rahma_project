@@ -29,9 +29,7 @@ Future<Position> determinePosition() async {
 
   if (permission == LocationPermission.deniedForever) {
     // Permissions are denied forever, handle appropriately.
-    return Future.error(
-      'Location permissions are permanently denied, we cannot request permissions.',
-    );
+    return Future.error('Location permissions are permanently denied, we cannot request permissions.');
   }
 
   // When we reach here, permissions are granted and we can
@@ -44,6 +42,10 @@ Future<Position> determinePosition() async {
       timeLimit: Duration(seconds: 10), // Timeout after 10 seconds
     ),
   );
+}
+
+Future<LocationPermission> requestPermission() {
+  return Geolocator.requestPermission();
 }
 
 /// Get cached location if available, otherwise get current position

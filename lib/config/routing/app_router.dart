@@ -9,13 +9,14 @@ import 'package:rahma_project/features/azkar/presentation/pages/azkar_categories
 import 'package:rahma_project/features/azkar/presentation/pages/azkar_category_details_screen.dart';
 import 'package:rahma_project/features/prayer/presentation/cubit/prayer_cubit.dart';
 import 'package:rahma_project/features/home/presentation/pages/home_screen.dart';
+import 'package:rahma_project/features/quibla/presentation/pages/quibla_screen.dart';
 
 GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 
 final GoRouter router = GoRouter(
   navigatorKey: navigatorKey,
   initialLocation: Routes.homeScreen,
- 
+
   routes: [
     GoRoute(
       path: Routes.homeScreen,
@@ -31,6 +32,7 @@ final GoRouter router = GoRouter(
       path: Routes.azkarDetailsScreen,
       builder: (context, state) => AzkarCategoryDetailsScreen(category: state.extra as String),
     ),
+    GoRoute(path: Routes.quiblaScreen, builder: (context, state) => const QuiblaScreen()),
     GoRoute(path: '/:path(.*)', builder: (context, state) => const NotFound()),
   ],
 );

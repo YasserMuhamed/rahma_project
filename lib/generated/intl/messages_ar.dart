@@ -20,10 +20,17 @@ typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'ar';
 
-  static String m0(count) => "تكرار ${count}";
+  static String m0(angle) => "بعيد ${angle}°";
+
+  static String m1(angle) => "القبلة: ${angle}°";
+
+  static String m2(count) => "تكرار ${count}";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+    "aligned_with_qibla": MessageLookupByLibrary.simpleMessage(
+      "متوافق مع القبلة ✓",
+    ),
     "app_name": MessageLookupByLibrary.simpleMessage("رحمة"),
     "asr": MessageLookupByLibrary.simpleMessage("العصر"),
     "azkar": MessageLookupByLibrary.simpleMessage("أذكار"),
@@ -38,13 +45,18 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "maghrib": MessageLookupByLibrary.simpleMessage("المغرب"),
     "next_prayer": MessageLookupByLibrary.simpleMessage("الصلاة التالية"),
+    "off_angle": m0,
     "ok": MessageLookupByLibrary.simpleMessage("موافق"),
     "prayer_times": MessageLookupByLibrary.simpleMessage("مواقيت الصلاة"),
     "previous": MessageLookupByLibrary.simpleMessage("السابق"),
     "qibla": MessageLookupByLibrary.simpleMessage("القبلة"),
+    "quibla_angle": m1,
     "quraan": MessageLookupByLibrary.simpleMessage("القرآن"),
-    "repeat": m0,
+    "repeat": m2,
     "retry": MessageLookupByLibrary.simpleMessage("إعادة المحاولة"),
+    "rotate_to_align_arrows": MessageLookupByLibrary.simpleMessage(
+      "قم بالتدوير لمزامنة الأسهم",
+    ),
     "services": MessageLookupByLibrary.simpleMessage("الخدمات"),
     "sunrise": MessageLookupByLibrary.simpleMessage("الشروق"),
     "update_prayer_times": MessageLookupByLibrary.simpleMessage(

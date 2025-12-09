@@ -18,7 +18,11 @@ class FeaturesSliverGrid extends StatelessWidget {
       crossAxisSpacing: 16,
       children: [
         FeatureCard(title: context.t.azkar, icon: Icon(Icons.book), onTap: () => GoRouter.of(context).push(Routes.azkarCategoriesScreen)),
-        FeatureCard(title: context.t.qibla, icon: Icon(Icons.navigation_outlined)),
+        FeatureCard(
+          title: context.t.qibla,
+          icon: Icon(Icons.navigation_outlined),
+          onTap: () => GoRouter.of(context).push(Routes.quiblaScreen),
+        ),
         FeatureCard(title: context.t.prayer_times, icon: Icon(Icons.watch_later_outlined)),
         FeatureCard(title: context.t.quraan, icon: Icon(Icons.menu_book_rounded)),
       ],

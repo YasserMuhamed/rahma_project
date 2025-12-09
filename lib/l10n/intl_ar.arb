@@ -20,5 +20,9 @@
   "qibla": "القبلة",
   "services": "الخدمات",
   "quraan": "القرآن",
-  "repeat": "تكرار {count}"
+  "repeat": "تكرار {count}",
+  "rotate_to_align_arrows": "قم بالتدوير لمزامنة الأسهم",
+  "aligned_with_qibla": "متوافق مع القبلة ✓",
+  "quibla_angle": "القبلة: {angle}°",
+  "off_angle": "بعيد {angle}°"
 }

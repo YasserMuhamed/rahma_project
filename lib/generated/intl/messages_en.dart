@@ -20,10 +20,17 @@ typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'en';
 
-  static String m0(count) => "Repeat ${count}";
+  static String m0(angle) => "Off ${angle}°";
+
+  static String m1(angle) => "Qibla: ${angle}°";
+
+  static String m2(count) => "Repeat ${count}";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+    "aligned_with_qibla": MessageLookupByLibrary.simpleMessage(
+      "Aligned with Qibla ✓",
+    ),
     "app_name": MessageLookupByLibrary.simpleMessage("Rahma"),
     "asr": MessageLookupByLibrary.simpleMessage("Asr"),
     "azkar": MessageLookupByLibrary.simpleMessage("Azkar"),
@@ -40,13 +47,18 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "maghrib": MessageLookupByLibrary.simpleMessage("Maghrib"),
     "next_prayer": MessageLookupByLibrary.simpleMessage("Next Prayer"),
+    "off_angle": m0,
     "ok": MessageLookupByLibrary.simpleMessage("OK"),
     "prayer_times": MessageLookupByLibrary.simpleMessage("Prayer Times"),
     "previous": MessageLookupByLibrary.simpleMessage("Previous"),
     "qibla": MessageLookupByLibrary.simpleMessage("Qibla"),
+    "quibla_angle": m1,
     "quraan": MessageLookupByLibrary.simpleMessage("Quraan"),
-    "repeat": m0,
+    "repeat": m2,
     "retry": MessageLookupByLibrary.simpleMessage("Retry"),
+    "rotate_to_align_arrows": MessageLookupByLibrary.simpleMessage(
+      "Rotate to align the arrows",
+    ),
     "services": MessageLookupByLibrary.simpleMessage("Services"),
     "sunrise": MessageLookupByLibrary.simpleMessage("Sunrise"),
     "update_prayer_times": MessageLookupByLibrary.simpleMessage(
