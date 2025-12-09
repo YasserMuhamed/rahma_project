@@ -35,6 +35,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "asr": MessageLookupByLibrary.simpleMessage("العصر"),
     "azkar": MessageLookupByLibrary.simpleMessage("أذكار"),
     "cancel": MessageLookupByLibrary.simpleMessage("الغاء"),
+    "copied_to_clipboard": MessageLookupByLibrary.simpleMessage(
+      "تم النسخ إلى الحافظة",
+    ),
     "dhuhr": MessageLookupByLibrary.simpleMessage("الظهر"),
     "fajr": MessageLookupByLibrary.simpleMessage("الفجر"),
     "isha": MessageLookupByLibrary.simpleMessage("العشاء"),

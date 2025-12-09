@@ -35,6 +35,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "asr": MessageLookupByLibrary.simpleMessage("Asr"),
     "azkar": MessageLookupByLibrary.simpleMessage("Azkar"),
     "cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
+    "copied_to_clipboard": MessageLookupByLibrary.simpleMessage(
+      "Copied to clipboard",
+    ),
     "dhuhr": MessageLookupByLibrary.simpleMessage("Dhuhr"),
     "fajr": MessageLookupByLibrary.simpleMessage("Fajr"),
     "isha": MessageLookupByLibrary.simpleMessage("Isha"),

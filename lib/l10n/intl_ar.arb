@@ -24,5 +24,6 @@
   "rotate_to_align_arrows": "قم بالتدوير لمزامنة الأسهم",
   "aligned_with_qibla": "متوافق مع القبلة ✓",
   "quibla_angle": "القبلة: {angle}°",
-  "off_angle": "بعيد {angle}°"
+  "off_angle": "بعيد {angle}°",
+  "copied_to_clipboard": "تم النسخ إلى الحافظة"
 }

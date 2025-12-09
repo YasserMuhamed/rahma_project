@@ -24,5 +24,6 @@
   "rotate_to_align_arrows": "Rotate to align the arrows",
   "aligned_with_qibla": "Aligned with Qibla ✓",
   "quibla_angle": "Qibla: {angle}°",
-  "off_angle": "Off {angle}°"
+  "off_angle": "Off {angle}°",
+  "copied_to_clipboard": "Copied to clipboard"
 }
