@@ -137,6 +137,11 @@ class DarkEarthyTheme {
         secondaryLabelStyle: const TextStyle(color: pureWhite),
         brightness: Brightness.dark,
       ),
+      textSelectionTheme: TextSelectionThemeData(
+        cursorColor: pureWhite,
+        selectionColor: lightText.withValues(alpha: 0.5),
+        selectionHandleColor: pureWhite,
+      ),
     );
   }
 }

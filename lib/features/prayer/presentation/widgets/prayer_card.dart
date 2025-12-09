@@ -57,17 +57,10 @@ class _PrayerCardState extends State<PrayerCard> {
     for (var entry in prayers.entries) {
       try {
         final timeParts = entry.value.split(':');
-        final prayerTime = DateTime(
-          now.year,
-          now.month,
-          now.day,
-          int.parse(timeParts[0]),
-          int.parse(timeParts[1]),
-        );
+        final prayerTime = DateTime(now.year, now.month, now.day, int.parse(timeParts[0]), int.parse(timeParts[1]));
 
         if (prayerTime.isAfter(now)) {
-          if (nextPrayerDateTime == null ||
-              prayerTime.isBefore(nextPrayerDateTime)) {
+          if (nextPrayerDateTime == null || prayerTime.isBefore(nextPrayerDateTime)) {
             nextPrayerDateTime = prayerTime;
             foundPrayerKey = entry.key;
           }
@@ -80,13 +73,7 @@ class _PrayerCardState extends State<PrayerCard> {
     if (nextPrayerDateTime == null && prayers['fajr'] != null) {
       try {
         final timeParts = prayers['fajr']!.split(':');
-        nextPrayerDateTime = DateTime(
-          now.year,
-          now.month,
-          now.day + 1,
-          int.parse(timeParts[0]),
-          int.parse(timeParts[1]),
-        );
+        nextPrayerDateTime = DateTime(now.year, now.month, now.day + 1, int.parse(timeParts[0]), int.parse(timeParts[1]));
         foundPrayerKey = 'fajr';
       } catch (e) {
         // Handle parsing errors
@@ -134,13 +121,7 @@ class _PrayerCardState extends State<PrayerCard> {
     final now = DateTime.now();
     final parsed = int.tryParse(time.split(':')[0]);
     if (parsed == null) return time;
-    DateTime dateTime = DateTime(
-      now.year,
-      now.month,
-      now.day,
-      int.parse(time.split(':')[0]),
-      int.parse(time.split(':')[1]),
-    );
+    DateTime dateTime = DateTime(now.year, now.month, now.day, int.parse(time.split(':')[0]), int.parse(time.split(':')[1]));
     String formattedTime = DateFormat('h:mm a').format(dateTime);
     return formattedTime;
   }
@@ -148,7 +129,6 @@ class _PrayerCardState extends State<PrayerCard> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.all(16),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(24),
         gradient: LinearGradient(
@@ -156,13 +136,7 @@ class _PrayerCardState extends State<PrayerCard> {
           end: Alignment.bottomRight,
           colors: [AppColors.vibrantEmerald, AppColors.forestGreen],
         ),
-        boxShadow: [
-          BoxShadow(
-            color: AppColors.vibrantEmerald.withValues(alpha: 0.3),
-            blurRadius: 10,
-            offset: const Offset(0, 5),
-          ),
-        ],
+        boxShadow: [BoxShadow(color: AppColors.vibrantEmerald.withValues(alpha: 0.3), blurRadius: 10, offset: const Offset(0, 5))],
       ),
       child: Stack(
         children: [
@@ -173,10 +147,7 @@ class _PrayerCardState extends State<PrayerCard> {
             child: Container(
               width: 150,
               height: 150,
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                color: Colors.white.withOpacity(0.05),
-              ),
+              decoration: BoxDecoration(shape: BoxShape.circle, color: Colors.white.withOpacity(0.05)),
             ),
           ),
           Positioned(
@@ -185,10 +156,7 @@ class _PrayerCardState extends State<PrayerCard> {
             child: Container(
               width: 100,
               height: 100,
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                color: Colors.white.withOpacity(0.05),
-              ),
+              decoration: BoxDecoration(shape: BoxShape.circle, color: Colors.white.withOpacity(0.05)),
             ),
           ),
 
@@ -200,11 +168,7 @@ class _PrayerCardState extends State<PrayerCard> {
               children: [
                 Text(
                   S.of(context).next_prayer, // Add this to your l10n
-                  style: TextStyle(
-                    color: const Color(0xFFE8E8E8).withValues(alpha: 0.8),
-                    fontSize: 14,
-                    fontWeight: FontWeight.w500,
-                  ),
+                  style: TextStyle(color: const Color(0xFFE8E8E8).withValues(alpha: 0.8), fontSize: 14, fontWeight: FontWeight.w500),
                 ),
                 const SizedBox(height: 12),
                 Row(
@@ -212,15 +176,8 @@ class _PrayerCardState extends State<PrayerCard> {
                   children: [
                     Container(
                       padding: const EdgeInsets.all(12),
-                      decoration: BoxDecoration(
-                        color: Colors.white.withOpacity(0.15),
-                        borderRadius: BorderRadius.circular(12),
-                      ),
-                      child: const Icon(
-                        Icons.access_time,
-                        color: Color(0xFFFFFFFF),
-                        size: 28,
-                      ),
+                      decoration: BoxDecoration(color: Colors.white.withOpacity(0.15), borderRadius: BorderRadius.circular(12)),
+                      child: const Icon(Icons.access_time, color: Color(0xFFFFFFFF), size: 28),
                     ),
                     const SizedBox(width: 16),
                     Expanded(
@@ -228,17 +185,8 @@ class _PrayerCardState extends State<PrayerCard> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            nextPrayerKey != null
-                                ? getLocalizedPrayerName(
-                                    context,
-                                    nextPrayerKey!,
-                                  )
-                                : S.of(context).loading,
-                            style: const TextStyle(
-                              color: Color(0xFFFFFFFF),
-                              fontSize: 24,
-                              fontWeight: FontWeight.bold,
-                            ),
+                            nextPrayerKey != null ? getLocalizedPrayerName(context, nextPrayerKey!) : S.of(context).loading,
+                            style: const TextStyle(color: Color(0xFFFFFFFF), fontSize: 24, fontWeight: FontWeight.bold),
                           ),
                           if (!widget.location.isNullOrEmpty())
                             Row(
@@ -253,17 +201,10 @@ class _PrayerCardState extends State<PrayerCard> {
                     ),
                     const SizedBox(width: 16),
                     PopupMenuButton(
-                      itemBuilder: (context) => [
-                        PopupMenuItem(
-                          value: 'change_location',
-                          child: Text(S.of(context).update_prayer_times),
-                        ),
-                      ],
+                      itemBuilder: (context) => [PopupMenuItem(value: 'change_location', child: Text(S.of(context).update_prayer_times))],
                       onSelected: (value) {
                         if (value == 'change_location') {
-                          context
-                              .read<PrayerCubit>()
-                              .loadPrayersWithUserLocation(forceRefresh: true);
+                          context.read<PrayerCubit>().loadPrayersWithUserLocation(forceRefresh: true);
                         }
                       },
                     ),
@@ -275,22 +216,14 @@ class _PrayerCardState extends State<PrayerCard> {
                 // Countdown timer
                 Center(
                   child: Container(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 32,
-                      vertical: 20,
-                    ),
+                    padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 20),
                     decoration: BoxDecoration(
                       color: AppColors.pineNeedle.withValues(alpha: 0.5),
                       borderRadius: BorderRadius.circular(16),
-                      border: Border.all(
-                        color: Colors.white.withValues(alpha: 0.1),
-                        width: 1,
-                      ),
+                      border: Border.all(color: Colors.white.withValues(alpha: 0.1), width: 1),
                     ),
                     child: Text(
-                      timeRemaining != null
-                          ? formatDuration(timeRemaining!)
-                          : '--:--:--',
+                      timeRemaining != null ? formatDuration(timeRemaining!) : '--:--:--',
                       style: const TextStyle(
                         inherit: false,
                         color: Color(0xFFFFFFFF),
@@ -308,41 +241,18 @@ class _PrayerCardState extends State<PrayerCard> {
                 // Prayer times list
                 Container(
                   padding: const EdgeInsets.all(16),
-                  decoration: BoxDecoration(
-                    color: Colors.white.withOpacity(0.08),
-                    borderRadius: BorderRadius.circular(16),
-                  ),
+                  decoration: BoxDecoration(color: Colors.white.withOpacity(0.08), borderRadius: BorderRadius.circular(16)),
                   child: Column(
                     children: [
-                      _buildPrayerTimeRow(
-                        'fajr',
-                        S.of(context).fajr,
-                        widget.prayerEntity.timings.fajr,
-                      ),
+                      _buildPrayerTimeRow('fajr', S.of(context).fajr, widget.prayerEntity.timings.fajr),
                       _buildDivider(),
-                      _buildPrayerTimeRow(
-                        'dhuhr',
-                        S.of(context).dhuhr,
-                        widget.prayerEntity.timings.dhuhr,
-                      ),
+                      _buildPrayerTimeRow('dhuhr', S.of(context).dhuhr, widget.prayerEntity.timings.dhuhr),
                       _buildDivider(),
-                      _buildPrayerTimeRow(
-                        'asr',
-                        S.of(context).asr,
-                        widget.prayerEntity.timings.asr,
-                      ),
+                      _buildPrayerTimeRow('asr', S.of(context).asr, widget.prayerEntity.timings.asr),
                       _buildDivider(),
-                      _buildPrayerTimeRow(
-                        'maghrib',
-                        S.of(context).maghrib,
-                        widget.prayerEntity.timings.maghrib,
-                      ),
+                      _buildPrayerTimeRow('maghrib', S.of(context).maghrib, widget.prayerEntity.timings.maghrib),
                       _buildDivider(),
-                      _buildPrayerTimeRow(
-                        'isha',
-                        S.of(context).isha,
-                        widget.prayerEntity.timings.isha,
-                      ),
+                      _buildPrayerTimeRow('isha', S.of(context).isha, widget.prayerEntity.timings.isha),
                     ],
                   ),
                 ),
@@ -368,19 +278,14 @@ class _PrayerCardState extends State<PrayerCard> {
                   width: 8,
                   height: 8,
                   margin: const EdgeInsets.only(right: 12, left: 12),
-                  decoration: const BoxDecoration(
-                    color: Color(0xFFFFFFFF),
-                    shape: BoxShape.circle,
-                  ),
+                  decoration: const BoxDecoration(color: Color(0xFFFFFFFF), shape: BoxShape.circle),
                 )
               else
                 const SizedBox(width: 20),
               Text(
                 name,
                 style: TextStyle(
-                  color: isNext
-                      ? const Color(0xFFFFFFFF)
-                      : const Color(0xFFE8E8E8).withValues(alpha: 0.7),
+                  color: isNext ? const Color(0xFFFFFFFF) : const Color(0xFFE8E8E8).withValues(alpha: 0.7),
                   fontSize: 16,
                   fontWeight: isNext ? FontWeight.w600 : FontWeight.w400,
                 ),
@@ -390,9 +295,7 @@ class _PrayerCardState extends State<PrayerCard> {
           Text(
             formatToAmPm(time ?? '--:--'),
             style: TextStyle(
-              color: isNext
-                  ? const Color(0xFFFFFFFF)
-                  : const Color(0xFFE8E8E8).withValues(alpha: 0.7),
+              color: isNext ? const Color(0xFFFFFFFF) : const Color(0xFFE8E8E8).withValues(alpha: 0.7),
               fontSize: 16,
               fontWeight: isNext ? FontWeight.w600 : FontWeight.w400,
               fontFeatures: const [FontFeature.tabularFigures()],
@@ -404,10 +307,6 @@ class _PrayerCardState extends State<PrayerCard> {
   }
 
   Widget _buildDivider() {
-    return Container(
-      height: 1,
-      margin: const EdgeInsets.symmetric(vertical: 4),
-      color: Colors.white.withValues(alpha: 0.1),
-    );
+    return Container(height: 1, margin: const EdgeInsets.symmetric(vertical: 4), color: Colors.white.withValues(alpha: 0.1));
   }
 }

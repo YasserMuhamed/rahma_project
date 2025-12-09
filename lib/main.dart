@@ -1,6 +1,5 @@
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hive_flutter/adapters.dart';
 import 'package:rahma_project/core/di/dependency_injection.dart';
@@ -13,8 +12,7 @@ import 'package:rahma_project/core/services/workmanager/workmanager.dart';
 import 'package:workmanager/workmanager.dart';
 
 void main() async {
-  WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
-  FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
+  WidgetsFlutterBinding.ensureInitialized();
   await Hive.initFlutter();
   Hive.registerAdapter(PrayerEntityAdapter());
   Hive.registerAdapter(PrayerTimingsAdapter());

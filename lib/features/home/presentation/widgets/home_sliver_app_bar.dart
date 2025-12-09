@@ -12,7 +12,7 @@ class HomeSliverAppBar extends StatelessWidget {
     return SliverLayoutBuilder(
       builder: (context, constraints) {
         return SliverAppBar(
-          pinned: true,
+          floating: true,
           expandedHeight: constraints.crossAxisExtent > 481 ? 200 : 150,
           backgroundColor: Theme.of(context).primaryColor,
           flexibleSpace: LayoutBuilder(

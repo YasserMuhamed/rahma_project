@@ -39,17 +39,11 @@ class HomePrayersConsumer extends StatelessWidget {
               ],
             ),
           ).then((value) {
-            if (context.mounted && value == true)
-              context.read<PrayerCubit>().loadPrayersWithUserLocation(
-                forceRefresh: true,
-              );
+            if (context.mounted && value == true) context.read<PrayerCubit>().loadPrayersWithUserLocation(forceRefresh: true);
           });
         }
       },
-      buildWhen: (previous, current) =>
-          current is PrayerLoading ||
-          current is PrayerLoaded ||
-          current is PrayerError,
+      buildWhen: (previous, current) => current is PrayerLoading || current is PrayerLoaded || current is PrayerError,
       builder: (context, state) {
         if (state is PrayerLoading) {
           return const PrayerCardLoading();
@@ -61,10 +55,7 @@ class HomePrayersConsumer extends StatelessWidget {
         }
 
         if (state is PrayerError) {
-          return RetryWidget(
-            message: state.message,
-            onRetry: () => context.read<PrayerCubit>().refresh(),
-          );
+          return RetryWidget(message: state.message, onRetry: () => context.read<PrayerCubit>().refresh());
         }
 
         return Text(state.toString());
