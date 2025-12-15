@@ -36,16 +36,11 @@ class CustomButton extends StatelessWidget {
           ? SizedBox(
               width: 24,
               height: 24,
-              child: Center(
-                child: const CircularProgressIndicator(
-                  color: Colors.white,
-                  strokeWidth: 2,
-                ),
-              ),
+              child: Center(child: const CircularProgressIndicator(color: Colors.white, strokeWidth: 2)),
             )
           : Text(
               buttonText,
-              style: AppTextStyles.w600_16().copyWith(color: textColor),
+              style: AppTextStyles.w600_16().copyWith(color: textColor, fontFamily: "Almarai", fontSize: 16),
             ),
     );
   }

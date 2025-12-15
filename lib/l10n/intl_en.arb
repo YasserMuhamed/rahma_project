@@ -25,5 +25,19 @@
   "aligned_with_qibla": "Aligned with Qibla ✓",
   "quibla_angle": "Qibla: {angle}°",
   "off_angle": "Off {angle}°",
-  "copied_to_clipboard": "Copied to clipboard"
+  "copied_to_clipboard": "Copied to clipboard",
+  "tasabeeh": "Tasabeeh",
+  "your_tasbeeh_count": "Tasbeeh: {count}",
+  "added_tasbeeh": "Added Tasbeeh",
+  "reset_tasbeeh": "Reset Tasbeeh",
+  "delete_tasbeeh": "Delete Tasbeeh",
+  "confirm_delete_tasbeeh": "Are you sure you want to delete this tasbeeh?",
+  "yes": "Yes",
+  "no": "No",
+  "add": "Add",
+  "add_tasbehah": "Add Tasbehah",
+  "tasbehah": "Tasbehah",
+  "description": "Description",
+  "enter_tasbehah_hint": "Enter your tasbehah...",
+  "enter_tasbehah_description": "Enter description..."
 }

@@ -271,17 +271,17 @@ class CenterDisplayMeter extends StatelessWidget {
                 children: [
                   Text(
                     "${headingToDegree(direction).toStringAsFixed(0)}°",
-                    style: TextStyle(color: AppColors.pureWhite, fontSize: safeSp(32), fontWeight: FontWeight.bold),
+                    style: TextStyle(color: AppColors.pureWhite, fontSize: safeSP(32), fontWeight: FontWeight.bold),
                   ),
                   SizedBox(height: 4),
                   Text(
                     context.t.quibla_angle(qiblaDirection.toStringAsFixed(0)),
-                    style: TextStyle(color: AppColors.pureWhite.withOpacity(0.8), fontSize: safeSp(12)),
+                    style: TextStyle(color: AppColors.pureWhite.withOpacity(0.8), fontSize: safeSP(12)),
                   ),
                   if (!isAligned)
                     Text(
                       context.t.off_angle(difference.toStringAsFixed(0)),
-                      style: TextStyle(color: AppColors.pureWhite.withOpacity(0.6), fontSize: safeSp(10)),
+                      style: TextStyle(color: AppColors.pureWhite.withOpacity(0.6), fontSize: safeSP(10)),
                     ),
                 ],
               ),

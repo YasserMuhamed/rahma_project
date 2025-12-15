@@ -26,8 +26,13 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static String m2(count) => "Repeat ${count}";
 
+  static String m3(count) => "Tasbeeh: ${count}";
+
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+    "add": MessageLookupByLibrary.simpleMessage("Add"),
+    "add_tasbehah": MessageLookupByLibrary.simpleMessage("Add Tasbehah"),
+    "added_tasbeeh": MessageLookupByLibrary.simpleMessage("Added Tasbeeh"),
     "aligned_with_qibla": MessageLookupByLibrary.simpleMessage(
       "Aligned with Qibla ✓",
     ),
@@ -35,10 +40,21 @@ class MessageLookup extends MessageLookupByLibrary {
     "asr": MessageLookupByLibrary.simpleMessage("Asr"),
     "azkar": MessageLookupByLibrary.simpleMessage("Azkar"),
     "cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
+    "confirm_delete_tasbeeh": MessageLookupByLibrary.simpleMessage(
+      "Are you sure you want to delete this tasbeeh?",
+    ),
     "copied_to_clipboard": MessageLookupByLibrary.simpleMessage(
       "Copied to clipboard",
     ),
+    "delete_tasbeeh": MessageLookupByLibrary.simpleMessage("Delete Tasbeeh"),
+    "description": MessageLookupByLibrary.simpleMessage("Description"),
     "dhuhr": MessageLookupByLibrary.simpleMessage("Dhuhr"),
+    "enter_tasbehah_description": MessageLookupByLibrary.simpleMessage(
+      "Enter description...",
+    ),
+    "enter_tasbehah_hint": MessageLookupByLibrary.simpleMessage(
+      "Enter your tasbehah...",
+    ),
     "fajr": MessageLookupByLibrary.simpleMessage("Fajr"),
     "isha": MessageLookupByLibrary.simpleMessage("Isha"),
     "loading": MessageLookupByLibrary.simpleMessage("Loading..."),
@@ -50,6 +66,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "maghrib": MessageLookupByLibrary.simpleMessage("Maghrib"),
     "next_prayer": MessageLookupByLibrary.simpleMessage("Next Prayer"),
+    "no": MessageLookupByLibrary.simpleMessage("No"),
     "off_angle": m0,
     "ok": MessageLookupByLibrary.simpleMessage("OK"),
     "prayer_times": MessageLookupByLibrary.simpleMessage("Prayer Times"),
@@ -58,14 +75,19 @@ class MessageLookup extends MessageLookupByLibrary {
     "quibla_angle": m1,
     "quraan": MessageLookupByLibrary.simpleMessage("Quraan"),
     "repeat": m2,
+    "reset_tasbeeh": MessageLookupByLibrary.simpleMessage("Reset Tasbeeh"),
     "retry": MessageLookupByLibrary.simpleMessage("Retry"),
     "rotate_to_align_arrows": MessageLookupByLibrary.simpleMessage(
       "Rotate to align the arrows",
     ),
     "services": MessageLookupByLibrary.simpleMessage("Services"),
     "sunrise": MessageLookupByLibrary.simpleMessage("Sunrise"),
+    "tasabeeh": MessageLookupByLibrary.simpleMessage("Tasabeeh"),
+    "tasbehah": MessageLookupByLibrary.simpleMessage("Tasbehah"),
     "update_prayer_times": MessageLookupByLibrary.simpleMessage(
       "Update with Current Location",
     ),
+    "yes": MessageLookupByLibrary.simpleMessage("Yes"),
+    "your_tasbeeh_count": m3,
   };
 }

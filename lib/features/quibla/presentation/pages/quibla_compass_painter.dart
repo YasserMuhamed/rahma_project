@@ -27,8 +27,8 @@ class QuiblaCompassPainter extends CustomPainter {
     ..color = color.withValues(alpha: .7)
     ..strokeWidth = 1;
 
-  late final majorScaleStyle = TextStyle(color: color, fontSize: safeSp(12));
-  late final cardinalityStyle = TextStyle(color: AppColors.pureWhite, fontSize: safeSp(20), fontWeight: FontWeight.bold);
+  late final majorScaleStyle = TextStyle(color: color, fontSize: safeSP(12));
+  late final cardinalityStyle = TextStyle(color: AppColors.pureWhite, fontSize: safeSP(20), fontWeight: FontWeight.bold);
 
   late final _minorTicks = _layoutScale(minorTickCount);
   late final _majorTicks = _layoutScale(majorTickCount);

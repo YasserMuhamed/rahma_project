@@ -25,5 +25,19 @@
   "aligned_with_qibla": "متوافق مع القبلة ✓",
   "quibla_angle": "القبلة: {angle}°",
   "off_angle": "بعيد {angle}°",
-  "copied_to_clipboard": "تم النسخ إلى الحافظة"
+  "copied_to_clipboard": "تم النسخ إلى الحافظة",
+  "tasabeeh": "تسابيح",
+  "your_tasbeeh_count": "تسابيحك: {count}",
+  "added_tasbeeh": "تمت إضافة تسبيحة",
+  "reset_tasbeeh": "إعادة تعيين التسبيح",
+  "delete_tasbeeh": "حذف التسبيح",
+  "confirm_delete_tasbeeh": "هل أنت متأكد أنك تريد حذف هذه التسبيحة؟",
+  "yes": "نعم",
+  "no": "لا",
+  "add": "إضافة",
+  "add_tasbehah": "إضافة تسبيحة",
+  "tasbehah": "التسبيحة",
+  "description": "الوصف",
+  "enter_tasbehah_hint": "اكتب تسبيحتك...",
+  "enter_tasbehah_description": "اكتب الوصف..."
 }

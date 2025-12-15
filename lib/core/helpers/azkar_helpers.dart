@@ -1,4 +1,5 @@
 import 'package:rahma_project/features/azkar/domain/entities/azkar_entity.dart';
+import 'package:rahma_project/features/tasbeeh/domain/entities/tasbeeh_entity.dart';
 
 extension AzkarContentFormatter on String {
   // Replace verse numbers (25) with Islamic ayah symbol ﴿ ٢٥ ﴾
@@ -77,5 +78,9 @@ class AzkarDisplayHelper {
 }
 
 extension AzkarEntityExtension on AzkarEntity {
+  String get formattedContent => content.toIslamicAyahFormat(fixCommas: true);
+}
+
+extension TasbeehEntityExtension on TasbeehEntity {
   String get formattedContent => content.toIslamicAyahFormat(fixCommas: true);
 }

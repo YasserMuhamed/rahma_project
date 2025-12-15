@@ -49,8 +49,8 @@ extension GoNavigation on BuildContext {
 
   /// Pops the top-most route off the navigator.
   /// Note: GoRouter's pop does not take a result parameter like the traditional Navigator.
-  void pop() {
-    GoRouter.of(this).pop();
+  void pop<T extends Object?>([T? result]) {
+    GoRouter.of(this).pop(result);
   }
 
   /// Checks if the current route can be popped off the navigator.

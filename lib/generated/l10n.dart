@@ -238,6 +238,116 @@ class S {
       args: [],
     );
   }
+
+  /// `Tasabeeh`
+  String get tasabeeh {
+    return Intl.message('Tasabeeh', name: 'tasabeeh', desc: '', args: []);
+  }
+
+  /// `Tasbeeh: {count}`
+  String your_tasbeeh_count(Object count) {
+    return Intl.message(
+      'Tasbeeh: $count',
+      name: 'your_tasbeeh_count',
+      desc: '',
+      args: [count],
+    );
+  }
+
+  /// `Added Tasbeeh`
+  String get added_tasbeeh {
+    return Intl.message(
+      'Added Tasbeeh',
+      name: 'added_tasbeeh',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Reset Tasbeeh`
+  String get reset_tasbeeh {
+    return Intl.message(
+      'Reset Tasbeeh',
+      name: 'reset_tasbeeh',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Delete Tasbeeh`
+  String get delete_tasbeeh {
+    return Intl.message(
+      'Delete Tasbeeh',
+      name: 'delete_tasbeeh',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Are you sure you want to delete this tasbeeh?`
+  String get confirm_delete_tasbeeh {
+    return Intl.message(
+      'Are you sure you want to delete this tasbeeh?',
+      name: 'confirm_delete_tasbeeh',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Yes`
+  String get yes {
+    return Intl.message('Yes', name: 'yes', desc: '', args: []);
+  }
+
+  /// `No`
+  String get no {
+    return Intl.message('No', name: 'no', desc: '', args: []);
+  }
+
+  /// `Add`
+  String get add {
+    return Intl.message('Add', name: 'add', desc: '', args: []);
+  }
+
+  /// `Add Tasbehah`
+  String get add_tasbehah {
+    return Intl.message(
+      'Add Tasbehah',
+      name: 'add_tasbehah',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Tasbehah`
+  String get tasbehah {
+    return Intl.message('Tasbehah', name: 'tasbehah', desc: '', args: []);
+  }
+
+  /// `Description`
+  String get description {
+    return Intl.message('Description', name: 'description', desc: '', args: []);
+  }
+
+  /// `Enter your tasbehah...`
+  String get enter_tasbehah_hint {
+    return Intl.message(
+      'Enter your tasbehah...',
+      name: 'enter_tasbehah_hint',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enter description...`
+  String get enter_tasbehah_description {
+    return Intl.message(
+      'Enter description...',
+      name: 'enter_tasbehah_description',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

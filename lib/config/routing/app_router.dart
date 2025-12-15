@@ -10,6 +10,9 @@ import 'package:rahma_project/features/azkar/presentation/pages/azkar_category_d
 import 'package:rahma_project/features/prayer/presentation/cubit/prayer_cubit.dart';
 import 'package:rahma_project/features/home/presentation/pages/home_screen.dart';
 import 'package:rahma_project/features/quibla/presentation/pages/quibla_screen.dart';
+import 'package:rahma_project/features/tasbeeh/presentation/cubit/add_tasbeeh/add_tasbeeh_cubit.dart';
+import 'package:rahma_project/features/tasbeeh/presentation/cubit/tasbeeh/tasbeeh_cubit.dart';
+import 'package:rahma_project/features/tasbeeh/presentation/pages/tasbeeh_screen.dart';
 
 GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 
@@ -33,6 +36,16 @@ final GoRouter router = GoRouter(
       builder: (context, state) => AzkarCategoryDetailsScreen(category: state.extra as String),
     ),
     GoRoute(path: Routes.quiblaScreen, builder: (context, state) => const QuiblaScreen()),
+    GoRoute(
+      path: Routes.tasabeehScreen,
+      builder: (context, state) => MultiBlocProvider(
+        providers: [
+          BlocProvider(create: (context) => getIt<TasbeehCubit>()..getTasbeeh()),
+          BlocProvider(create: (context) => getIt<AddTasbeehCubit>()),
+        ],
+        child: const TasbeehScreen(),
+      ),
+    ),
     GoRoute(path: '/:path(.*)', builder: (context, state) => const NotFound()),
   ],
 );

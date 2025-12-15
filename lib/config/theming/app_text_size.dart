@@ -13,8 +13,12 @@ class AppTextSizes {
   static double fontSize32 = 32;
 }
 
-double safeSp(double size, {double maxScaleFactor = 1.2}) {
+double safeSP(num size, {double maxScaleFactor = 1.2}) {
   final scale = ScreenUtil().scaleText;
   final safeScale = scale > maxScaleFactor ? maxScaleFactor : scale;
   return size * safeScale;
+}
+
+extension SpExtension on num {
+  double get safeSp => safeSP(this);
 }

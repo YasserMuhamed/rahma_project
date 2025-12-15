@@ -23,7 +23,12 @@ class FeaturesSliverGrid extends StatelessWidget {
           icon: Icon(Icons.navigation_outlined),
           onTap: () => GoRouter.of(context).push(Routes.quiblaScreen),
         ),
-        FeatureCard(title: context.t.prayer_times, icon: Icon(Icons.watch_later_outlined)),
+        // FeatureCard(title: context.t.prayer_times, icon: Icon(Icons.watch_later_outlined)),
+        FeatureCard(
+          title: context.t.tasabeeh,
+          icon: Icon(Icons.checklist_rtl_rounded),
+          onTap: () => GoRouter.of(context).push(Routes.tasabeehScreen),
+        ),
         FeatureCard(title: context.t.quraan, icon: Icon(Icons.menu_book_rounded)),
       ],
     );

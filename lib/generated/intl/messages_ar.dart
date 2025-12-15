@@ -26,8 +26,13 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static String m2(count) => "تكرار ${count}";
 
+  static String m3(count) => "تسابيحك: ${count}";
+
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+    "add": MessageLookupByLibrary.simpleMessage("إضافة"),
+    "add_tasbehah": MessageLookupByLibrary.simpleMessage("إضافة تسبيحة"),
+    "added_tasbeeh": MessageLookupByLibrary.simpleMessage("تمت إضافة تسبيحة"),
     "aligned_with_qibla": MessageLookupByLibrary.simpleMessage(
       "متوافق مع القبلة ✓",
     ),
@@ -35,10 +40,21 @@ class MessageLookup extends MessageLookupByLibrary {
     "asr": MessageLookupByLibrary.simpleMessage("العصر"),
     "azkar": MessageLookupByLibrary.simpleMessage("أذكار"),
     "cancel": MessageLookupByLibrary.simpleMessage("الغاء"),
+    "confirm_delete_tasbeeh": MessageLookupByLibrary.simpleMessage(
+      "هل أنت متأكد أنك تريد حذف هذه التسبيحة؟",
+    ),
     "copied_to_clipboard": MessageLookupByLibrary.simpleMessage(
       "تم النسخ إلى الحافظة",
     ),
+    "delete_tasbeeh": MessageLookupByLibrary.simpleMessage("حذف التسبيح"),
+    "description": MessageLookupByLibrary.simpleMessage("الوصف"),
     "dhuhr": MessageLookupByLibrary.simpleMessage("الظهر"),
+    "enter_tasbehah_description": MessageLookupByLibrary.simpleMessage(
+      "اكتب الوصف...",
+    ),
+    "enter_tasbehah_hint": MessageLookupByLibrary.simpleMessage(
+      "اكتب تسبيحتك...",
+    ),
     "fajr": MessageLookupByLibrary.simpleMessage("الفجر"),
     "isha": MessageLookupByLibrary.simpleMessage("العشاء"),
     "loading": MessageLookupByLibrary.simpleMessage("جار التحميل..."),
@@ -48,6 +64,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "maghrib": MessageLookupByLibrary.simpleMessage("المغرب"),
     "next_prayer": MessageLookupByLibrary.simpleMessage("الصلاة التالية"),
+    "no": MessageLookupByLibrary.simpleMessage("لا"),
     "off_angle": m0,
     "ok": MessageLookupByLibrary.simpleMessage("موافق"),
     "prayer_times": MessageLookupByLibrary.simpleMessage("مواقيت الصلاة"),
@@ -56,14 +73,21 @@ class MessageLookup extends MessageLookupByLibrary {
     "quibla_angle": m1,
     "quraan": MessageLookupByLibrary.simpleMessage("القرآن"),
     "repeat": m2,
+    "reset_tasbeeh": MessageLookupByLibrary.simpleMessage(
+      "إعادة تعيين التسبيح",
+    ),
     "retry": MessageLookupByLibrary.simpleMessage("إعادة المحاولة"),
     "rotate_to_align_arrows": MessageLookupByLibrary.simpleMessage(
       "قم بالتدوير لمزامنة الأسهم",
     ),
     "services": MessageLookupByLibrary.simpleMessage("الخدمات"),
     "sunrise": MessageLookupByLibrary.simpleMessage("الشروق"),
+    "tasabeeh": MessageLookupByLibrary.simpleMessage("تسابيح"),
+    "tasbehah": MessageLookupByLibrary.simpleMessage("التسبيحة"),
     "update_prayer_times": MessageLookupByLibrary.simpleMessage(
       "تحديث بالموقع الحالي",
     ),
+    "yes": MessageLookupByLibrary.simpleMessage("نعم"),
+    "your_tasbeeh_count": m3,
   };
 }
