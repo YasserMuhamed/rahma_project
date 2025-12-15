@@ -18,6 +18,7 @@ class TasbeehLocalDs {
     final box = Hive.box(HiveKeys.tasabeeh);
     final dynamic data = box.values.toList();
     final tasabeehList = (data as List).cast<TasbeehEntity>();
+    tasabeehList.sort((a, b) => a.createdAt.compareTo(b.createdAt));
     return tasabeehList;
   }
 

@@ -3,19 +3,22 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:rahma_project/core/helpers/extensions.dart';
 import 'package:rahma_project/core/utils/app_snack_bar.dart';
 import 'package:rahma_project/core/widgets/custom_button.dart';
+import 'package:rahma_project/features/tasbeeh/domain/entities/tasbeeh_entity.dart';
 import 'package:rahma_project/features/tasbeeh/presentation/cubit/update_tasbeeh/update_tasbeeh_cubit.dart';
 
 class UpdateTasbeehBlocConsumer extends StatelessWidget {
   const UpdateTasbeehBlocConsumer({
     super.key,
-    required this.id,
     required this.formKey,
+    required this.id,
+    required this.createdAt,
     required this.tasbeehController,
     required this.onValidationModeChanged,
     required this.descriptionController,
   });
-  final String id;
   final GlobalKey<FormState> formKey;
+  final String id;
+  final DateTime createdAt;
   final TextEditingController tasbeehController;
   final TextEditingController descriptionController;
   final VoidCallback onValidationModeChanged;
@@ -38,11 +41,15 @@ class UpdateTasbeehBlocConsumer extends StatelessWidget {
           onPressed: state is! UpdateTasbeehLoading
               ? () {
                   if (formKey.currentState!.validate()) {
-                    context.read<UpdateTasbeehCubit>().updateTasbeeh(
-                      id: id,
-                      content: tasbeehController.text,
+                    final tasbeeh = TasbeehEntity(
+                      category: "تسابيح",
+                      count: "0",
                       description: descriptionController.text,
+                      content: tasbeehController.text,
+                      id: id,
+                      createdAt: createdAt,
                     );
+                    context.read<UpdateTasbeehCubit>().updateTasbeeh(item: tasbeeh);
                   } else {
                     onValidationModeChanged();
                   }

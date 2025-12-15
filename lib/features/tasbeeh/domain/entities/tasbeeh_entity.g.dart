@@ -23,13 +23,14 @@ class TasbeehEntityAdapter extends TypeAdapter<TasbeehEntity> {
       content: fields[3] as String,
       clicks: fields[4] as int,
       id: fields[5] as String,
+      createdAt: fields[6] as DateTime,
     );
   }
 
   @override
   void write(BinaryWriter writer, TasbeehEntity obj) {
     writer
-      ..writeByte(6)
+      ..writeByte(7)
       ..writeByte(0)
       ..write(obj.category)
       ..writeByte(1)
@@ -41,7 +42,9 @@ class TasbeehEntityAdapter extends TypeAdapter<TasbeehEntity> {
       ..writeByte(4)
       ..write(obj.clicks)
       ..writeByte(5)
-      ..write(obj.id);
+      ..write(obj.id)
+      ..writeByte(6)
+      ..write(obj.createdAt);
   }
 
   @override

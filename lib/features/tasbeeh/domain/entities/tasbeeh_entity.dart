@@ -18,6 +18,8 @@ class TasbeehEntity extends Equatable {
   final int clicks;
   @HiveField(5)
   final String id;
+  @HiveField(6)
+  final DateTime createdAt;
 
   const TasbeehEntity({
     required this.category,
@@ -26,6 +28,7 @@ class TasbeehEntity extends Equatable {
     required this.content,
     this.clicks = 0,
     required this.id,
+    required this.createdAt,
   });
 
   // Factory with automatic ID generation
@@ -43,6 +46,7 @@ class TasbeehEntity extends Equatable {
       content: content,
       clicks: clicks,
       id: const Uuid().v4(),
+      createdAt: DateTime.now(),
     );
   }
 
@@ -52,7 +56,8 @@ class TasbeehEntity extends Equatable {
     description: json['description'],
     content: json['content'],
     clicks: json['clicks'] ?? 0,
-    id: json['id'] ?? const Uuid().v4(), // Auto-generate if missing
+    id: json['id'] ?? const Uuid().v4(),
+    createdAt: DateTime.now(),
   );
 
   Map<String, dynamic> toJson() => {
@@ -62,9 +67,18 @@ class TasbeehEntity extends Equatable {
     'content': content,
     'clicks': clicks,
     'id': id,
+    'createdAt': createdAt.toIso8601String(),
   };
 
-  TasbeehEntity copyWith({String? category, String? count, String? description, String? content, int? clicks, String? id}) {
+  TasbeehEntity copyWith({
+    String? category,
+    String? count,
+    String? description,
+    String? content,
+    int? clicks,
+    String? id,
+    DateTime? createdAt,
+  }) {
     return TasbeehEntity(
       category: category ?? this.category,
       count: count ?? this.count,
@@ -72,6 +86,7 @@ class TasbeehEntity extends Equatable {
       content: content ?? this.content,
       clicks: clicks ?? this.clicks,
       id: id ?? this.id,
+      createdAt: createdAt ?? this.createdAt,
     );
   }
 
