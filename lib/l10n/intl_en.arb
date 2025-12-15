@@ -39,5 +39,9 @@
   "tasbehah": "Tasbehah",
   "description": "Description",
   "enter_tasbehah_hint": "Enter your tasbehah...",
-  "enter_tasbehah_description": "Enter description..."
+  "enter_tasbehah_description": "Enter description...",
+  "delete": "Delete",
+  "edit": "Edit",
+  "tasbeeh_deleted": "Tasbeeh deleted",
+  "tasbeeh_updated": "Tasbeeh updated"
 }

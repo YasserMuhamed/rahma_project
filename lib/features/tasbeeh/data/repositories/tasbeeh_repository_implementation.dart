@@ -14,7 +14,7 @@ class TasbeehRepositoryImplementation implements TasbeehRepository {
   @override
   Future<Either<Failure, void>> createTasbeeh(TasbeehEntity tasbeeh) async {
     try {
-      tasbeehLocalDs.createTasbeeh(tasbeeh);
+      await tasbeehLocalDs.createTasbeeh(tasbeeh);
       return const Right(null);
     } catch (e) {
       return Left(ServerFailure(error: e.toString()));
@@ -24,7 +24,7 @@ class TasbeehRepositoryImplementation implements TasbeehRepository {
   @override
   Future<Either<Failure, void>> deleteTasbeeh(TasbeehEntity tasbeeh) async {
     try {
-      tasbeehLocalDs.deleteTasbeeh(tasbeeh);
+      await tasbeehLocalDs.deleteTasbeeh(tasbeeh);
       return const Right(null);
     } catch (e) {
       return Left(ServerFailure(error: e.toString()));
@@ -52,7 +52,7 @@ class TasbeehRepositoryImplementation implements TasbeehRepository {
   @override
   Future<Either<Failure, void>> updateTasbeeh(TasbeehEntity tasbeeh) async {
     try {
-      tasbeehLocalDs.updateTasbeeh(tasbeeh);
+      await tasbeehLocalDs.updateTasbeeh(tasbeeh);
       return const Right(null);
     } catch (e) {
       return Left(ServerFailure(error: e.toString()));

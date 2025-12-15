@@ -24,76 +24,37 @@ class TasbeehLocalDs {
   Future<void> saveTasbeehToHive(List<TasbeehEntity> tasbeeh) async {
     final box = Hive.box(HiveKeys.tasabeeh);
     await box.clear();
-    await box.addAll(tasbeeh);
+    // Save each item using its id as the key
+    for (var item in tasbeeh) {
+      await box.put(item.id, item);
+    }
+    Logger().i("Saved ${tasbeeh.length} tasbeeh items to Hive with unique IDs");
   }
 
   Future<void> createTasbeeh(TasbeehEntity tasbeeh) async {
     final box = Hive.box(HiveKeys.tasabeeh);
-    await box.add(tasbeeh);
-    Logger().i("Tasbeeh with content ${tasbeeh.content} saved to hive");
+    await box.put(tasbeeh.id, tasbeeh);
+    Logger().i("Tasbeeh with id ${tasbeeh.id} saved to hive");
   }
 
   Future<void> deleteTasbeeh(TasbeehEntity tasbeeh) async {
     final box = Hive.box(HiveKeys.tasabeeh);
-    var isExist = box.containsKey(tasbeeh.content);
-    if (!isExist) return;
-    await box.delete(tasbeeh.content);
-    Logger().i("Tasbeeh with content ${tasbeeh.content} deleted from hive");
+    var isExist = box.containsKey(tasbeeh.id);
+    if (!isExist) {
+      throw Exception("Tasbeeh with id ${tasbeeh.id} not found in hive");
+    }
+    await box.delete(tasbeeh.id);
+    Logger().i("Tasbeeh with id ${tasbeeh.id} deleted from hive");
   }
 
   Future<void> updateTasbeeh(TasbeehEntity tasbeeh) async {
     final box = Hive.box(HiveKeys.tasabeeh);
-    var isExist = box.containsKey(tasbeeh.content);
-    if (!isExist) return;
-    await box.put(tasbeeh.content, tasbeeh);
-    Logger().i("Tasbeeh with content ${tasbeeh.content} updated in hive");
+    var isExist = box.containsKey(tasbeeh.id);
+    if (!isExist) {
+      Logger().e("Tasbeeh with id ${tasbeeh.id} not found in hive");
+      return;
+    }
+    await box.put(tasbeeh.id, tasbeeh);
+    Logger().i("Tasbeeh with id ${tasbeeh.id} updated in hive");
   }
-
-  // Future<List<String>> getAzkarCategoriesFromFile() async {
-  //   final String jsonString = await rootBundle.loadString('assets/json/azkar.json');
-  //   final dynamic data = jsonDecode(jsonString);
-  //   final azkar = AzkarModel.fromJson(data);
-  //   return azkar.azkarData.keys.toList();
-  // }
-
-  // Future<void> saveCategoriesToHive(List<String> categories) async {
-  //   final box = Hive.box<String>(HiveKeys.azkarCategories);
-  //   await box.clear();
-  //   await box.addAll(categories);
-  // }
-
-  // Future<List<String>> getAzkarCategoriesFromHive() async {
-  //   final box = Hive.box<String>(HiveKeys.azkarCategories);
-  //   return box.values.toList();
-  // }
-
-  // Future<List<AzkarEntity>> getAzkarByCategoryFromFile(String category) async {
-  //   final String jsonString = await rootBundle.loadString('assets/json/azkar.json');
-  //   final dynamic data = jsonDecode(jsonString);
-
-  //   final azkarModel = AzkarModel.fromJson(data);
-
-  //   if (azkarModel.azkarData.containsKey(category)) {
-  //     return azkarModel.azkarData[category] ?? [];
-  //   }
-  //   return [];
-  // }
-
-  // Future<void> saveAzkarToHive(String category, List<AzkarEntity> azkar) async {
-  //   final box = Hive.box(HiveKeys.azkar); // Changed from box<List<AzkarEntity>>
-  //   await box.delete(category);
-  //   await box.put(category, azkar);
-  // }
-
-  // Future<List<AzkarEntity>> getAzkarByCategoryFromHive(String category) async {
-  //   final box = Hive.box(HiveKeys.azkar); // Changed from box<List<AzkarEntity>>
-  //   final dynamic data = box.get(category);
-
-  //   if (data == null) return [];
-
-  //   final azkar = (data as List).cast<AzkarEntity>();
-
-  //   Logger().e("azkar in category $category loaded from hive with length ${azkar.length}");
-  //   return azkar;
-  // }
 }

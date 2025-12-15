@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:rahma_project/core/helpers/extensions.dart';
 import 'package:rahma_project/features/tasbeeh/presentation/cubit/tasbeeh/tasbeeh_cubit.dart';
-import 'package:rahma_project/features/tasbeeh/presentation/widgets/tasbeeh_card.dart';
-import 'package:rahma_project/features/tasbeeh/presentation/widgets/tasbeeh_form.dart';
+import 'package:rahma_project/features/tasbeeh/presentation/widgets/tasbeeh_card_tile.dart';
+import 'package:rahma_project/features/tasbeeh/presentation/widgets/add_tasbeeh_form.dart';
 
 class TasbeehScreen extends StatelessWidget {
   const TasbeehScreen({super.key});
@@ -32,7 +32,7 @@ class TasbeehScreen extends StatelessWidget {
                     if (state is TasbeehLoaded) {
                       return SliverList.builder(
                         itemCount: state.tasbeehList.length,
-                        itemBuilder: (context, index) => TasbeehCard(item: state.tasbeehList.reversed.toList()[index]),
+                        itemBuilder: (context, index) => TasbeehCardTile(item: state.tasbeehList.reversed.toList()[index]),
                       );
                     }
                     return SizedBox.shrink();
@@ -51,7 +51,7 @@ Future<void> onAdd(BuildContext context) async {
   final shouldRefresh = await showModalBottomSheet<bool>(
     context: context,
     isScrollControlled: true,
-    builder: (modalContext) => Padding(padding: MediaQuery.of(modalContext).viewInsets, child: const TasbeehForm()),
+    builder: (modalContext) => Padding(padding: MediaQuery.of(modalContext).viewInsets, child: const AddTasbeehForm()),
   );
 
   if (shouldRefresh == true && context.mounted) {

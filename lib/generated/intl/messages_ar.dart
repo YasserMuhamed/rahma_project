@@ -46,9 +46,11 @@ class MessageLookup extends MessageLookupByLibrary {
     "copied_to_clipboard": MessageLookupByLibrary.simpleMessage(
       "تم النسخ إلى الحافظة",
     ),
+    "delete": MessageLookupByLibrary.simpleMessage("حذف"),
     "delete_tasbeeh": MessageLookupByLibrary.simpleMessage("حذف التسبيح"),
     "description": MessageLookupByLibrary.simpleMessage("الوصف"),
     "dhuhr": MessageLookupByLibrary.simpleMessage("الظهر"),
+    "edit": MessageLookupByLibrary.simpleMessage("تعديل"),
     "enter_tasbehah_description": MessageLookupByLibrary.simpleMessage(
       "اكتب الوصف...",
     ),
@@ -83,6 +85,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "services": MessageLookupByLibrary.simpleMessage("الخدمات"),
     "sunrise": MessageLookupByLibrary.simpleMessage("الشروق"),
     "tasabeeh": MessageLookupByLibrary.simpleMessage("تسابيح"),
+    "tasbeeh_deleted": MessageLookupByLibrary.simpleMessage("تم حذف التسبيحة"),
+    "tasbeeh_updated": MessageLookupByLibrary.simpleMessage(
+      "تم تحديث التسبيحة",
+    ),
     "tasbehah": MessageLookupByLibrary.simpleMessage("التسبيحة"),
     "update_prayer_times": MessageLookupByLibrary.simpleMessage(
       "تحديث بالموقع الحالي",

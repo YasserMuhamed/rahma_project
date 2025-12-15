@@ -9,14 +9,14 @@ import 'package:rahma_project/core/widgets/drag_widget.dart';
 import 'package:rahma_project/features/tasbeeh/presentation/cubit/add_tasbeeh/add_tasbeeh_cubit.dart';
 import 'package:rahma_project/features/tasbeeh/presentation/widgets/add_tasbeeh_bloc_consumer.dart';
 
-class TasbeehForm extends StatefulWidget {
-  const TasbeehForm({super.key});
+class AddTasbeehForm extends StatefulWidget {
+  const AddTasbeehForm({super.key});
 
   @override
-  State<TasbeehForm> createState() => _TasbeehFormState();
+  State<AddTasbeehForm> createState() => _AddTasbeehFormState();
 }
 
-class _TasbeehFormState extends State<TasbeehForm> {
+class _AddTasbeehFormState extends State<AddTasbeehForm> {
   final TextEditingController tasbeehController = TextEditingController();
   final TextEditingController descriptionController = TextEditingController();
 

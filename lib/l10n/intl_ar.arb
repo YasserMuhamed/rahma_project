@@ -39,5 +39,9 @@
   "tasbehah": "التسبيحة",
   "description": "الوصف",
   "enter_tasbehah_hint": "اكتب تسبيحتك...",
-  "enter_tasbehah_description": "اكتب الوصف..."
+  "enter_tasbehah_description": "اكتب الوصف...",
+  "delete": "حذف",
+  "edit": "تعديل",
+  "tasbeeh_deleted": "تم حذف التسبيحة",
+  "tasbeeh_updated": "تم تحديث التسبيحة"
 }

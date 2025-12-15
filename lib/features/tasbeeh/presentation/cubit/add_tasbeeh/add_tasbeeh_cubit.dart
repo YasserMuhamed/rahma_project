@@ -11,7 +11,12 @@ class AddTasbeehCubit extends Cubit<AddTasbeehState> {
 
   Future<void> createTasbeeh({required String content, String? description}) async {
     emit(AddTasbeehLoading());
-    final TasbeehEntity tasbeehEntity = TasbeehEntity(content: content, category: 'تسابيح', count: '0', description: description ?? "");
+    final TasbeehEntity tasbeehEntity = TasbeehEntity.create(
+      content: content,
+      category: 'تسابيح',
+      count: '0',
+      description: description ?? "",
+    );
     final result = await tasbeehRepository.createTasbeeh(tasbeehEntity);
     result.fold((failure) => emit(AddTasbeehFailure(error: failure.error)), (tasbeeh) => emit(AddTasbeehSuccess()));
   }

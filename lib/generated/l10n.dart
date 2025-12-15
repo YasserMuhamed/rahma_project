@@ -348,6 +348,36 @@ class S {
       args: [],
     );
   }
+
+  /// `Delete`
+  String get delete {
+    return Intl.message('Delete', name: 'delete', desc: '', args: []);
+  }
+
+  /// `Edit`
+  String get edit {
+    return Intl.message('Edit', name: 'edit', desc: '', args: []);
+  }
+
+  /// `Tasbeeh deleted`
+  String get tasbeeh_deleted {
+    return Intl.message(
+      'Tasbeeh deleted',
+      name: 'tasbeeh_deleted',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Tasbeeh updated`
+  String get tasbeeh_updated {
+    return Intl.message(
+      'Tasbeeh updated',
+      name: 'tasbeeh_updated',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

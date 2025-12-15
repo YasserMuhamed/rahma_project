@@ -11,6 +11,7 @@ import 'package:rahma_project/features/prayer/presentation/cubit/prayer_cubit.da
 import 'package:rahma_project/features/home/presentation/pages/home_screen.dart';
 import 'package:rahma_project/features/quibla/presentation/pages/quibla_screen.dart';
 import 'package:rahma_project/features/tasbeeh/presentation/cubit/add_tasbeeh/add_tasbeeh_cubit.dart';
+import 'package:rahma_project/features/tasbeeh/presentation/cubit/delete_tasbeeh/delete_tasbeeh_cubit.dart';
 import 'package:rahma_project/features/tasbeeh/presentation/cubit/tasbeeh/tasbeeh_cubit.dart';
 import 'package:rahma_project/features/tasbeeh/presentation/pages/tasbeeh_screen.dart';
 
@@ -42,6 +43,7 @@ final GoRouter router = GoRouter(
         providers: [
           BlocProvider(create: (context) => getIt<TasbeehCubit>()..getTasbeeh()),
           BlocProvider(create: (context) => getIt<AddTasbeehCubit>()),
+          BlocProvider(create: (context) => getIt<DeleteTasbeehCubit>()),
         ],
         child: const TasbeehScreen(),
       ),

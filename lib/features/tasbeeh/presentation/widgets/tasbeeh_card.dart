@@ -10,6 +10,7 @@ import 'package:rahma_project/features/tasbeeh/domain/entities/tasbeeh_entity.da
 
 class TasbeehCard extends StatelessWidget {
   const TasbeehCard({super.key, required this.item});
+
   final TasbeehEntity item;
 
   @override

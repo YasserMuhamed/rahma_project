@@ -46,9 +46,11 @@ class MessageLookup extends MessageLookupByLibrary {
     "copied_to_clipboard": MessageLookupByLibrary.simpleMessage(
       "Copied to clipboard",
     ),
+    "delete": MessageLookupByLibrary.simpleMessage("Delete"),
     "delete_tasbeeh": MessageLookupByLibrary.simpleMessage("Delete Tasbeeh"),
     "description": MessageLookupByLibrary.simpleMessage("Description"),
     "dhuhr": MessageLookupByLibrary.simpleMessage("Dhuhr"),
+    "edit": MessageLookupByLibrary.simpleMessage("Edit"),
     "enter_tasbehah_description": MessageLookupByLibrary.simpleMessage(
       "Enter description...",
     ),
@@ -83,6 +85,8 @@ class MessageLookup extends MessageLookupByLibrary {
     "services": MessageLookupByLibrary.simpleMessage("Services"),
     "sunrise": MessageLookupByLibrary.simpleMessage("Sunrise"),
     "tasabeeh": MessageLookupByLibrary.simpleMessage("Tasabeeh"),
+    "tasbeeh_deleted": MessageLookupByLibrary.simpleMessage("Tasbeeh deleted"),
+    "tasbeeh_updated": MessageLookupByLibrary.simpleMessage("Tasbeeh updated"),
     "tasbehah": MessageLookupByLibrary.simpleMessage("Tasbehah"),
     "update_prayer_times": MessageLookupByLibrary.simpleMessage(
       "Update with Current Location",
