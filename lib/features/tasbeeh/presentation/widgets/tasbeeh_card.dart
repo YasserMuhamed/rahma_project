@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:rahma_project/config/routing/app_routes.dart';
 import 'package:rahma_project/config/theming/app_colors.dart';
 import 'package:rahma_project/config/theming/app_text_styles.dart';
@@ -8,6 +9,7 @@ import 'package:rahma_project/core/helpers/azkar_helpers.dart';
 import 'package:rahma_project/core/helpers/extensions.dart';
 import 'package:rahma_project/core/utils/app_snack_bar.dart';
 import 'package:rahma_project/features/tasbeeh/domain/entities/tasbeeh_entity.dart';
+import 'package:rahma_project/features/tasbeeh/presentation/cubit/tasbeeh/tasbeeh_cubit.dart';
 
 class TasbeehCard extends StatelessWidget {
   const TasbeehCard({super.key, required this.item});
@@ -19,7 +21,9 @@ class TasbeehCard extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 4),
       child: InkWell(
-        onTap: () => context.push(Routes.tasbeehDetailsScreen, extra: item),
+        onTap: () => context.push(Routes.tasbeehDetailsScreen, extra: item).then((_) {
+          if (context.mounted) context.read<TasbeehCubit>().getTasbeeh();
+        }),
         borderRadius: BorderRadius.circular(16),
         onLongPress: () async {
           await Clipboard.setData(ClipboardData(text: item.content));
@@ -42,6 +46,9 @@ class TasbeehCard extends StatelessWidget {
             crossAxisAlignment: .start,
             children: [
               SelectableText(
+                onTap: () => context.push(Routes.tasbeehDetailsScreen, extra: item).then((_) {
+                  if (context.mounted) context.read<TasbeehCubit>().getTasbeeh();
+                }),
                 item.formattedContent,
                 textAlign: TextAlign.start,
                 style: AppTextStyles.w600_16().copyWith(color: Colors.white, fontFamily: "UthmanicHafs", height: 1.5, fontSize: 24),

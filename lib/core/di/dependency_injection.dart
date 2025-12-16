@@ -16,6 +16,7 @@ import 'package:rahma_project/features/tasbeeh/data/datasources/tasbeeh_local_ds
 import 'package:rahma_project/features/tasbeeh/data/repositories/tasbeeh_repository_implementation.dart';
 import 'package:rahma_project/features/tasbeeh/domain/repositories/tasbeeh_repository.dart';
 import 'package:rahma_project/features/tasbeeh/presentation/cubit/add_tasbeeh/add_tasbeeh_cubit.dart';
+import 'package:rahma_project/features/tasbeeh/presentation/cubit/cubit/update_clicks_cubit.dart';
 import 'package:rahma_project/features/tasbeeh/presentation/cubit/delete_tasbeeh/delete_tasbeeh_cubit.dart';
 import 'package:rahma_project/features/tasbeeh/presentation/cubit/tasbeeh/tasbeeh_cubit.dart';
 import 'package:rahma_project/features/tasbeeh/presentation/cubit/update_tasbeeh/update_tasbeeh_cubit.dart';
@@ -42,6 +43,7 @@ Future<void> setupGetIt() async {
   getIt.registerFactory<AddTasbeehCubit>(() => AddTasbeehCubit(tasbeehRepository: getIt<TasbeehRepository>()));
   getIt.registerFactory<DeleteTasbeehCubit>(() => DeleteTasbeehCubit(tasbeehRepository: getIt<TasbeehRepository>()));
   getIt.registerFactory<UpdateTasbeehCubit>(() => UpdateTasbeehCubit(tasbeehRepository: getIt<TasbeehRepository>()));
+  getIt.registerFactory<UpdateClicksCubit>(() => UpdateClicksCubit(tasbeehRepository: getIt<TasbeehRepository>()));
   getIt.registerFactory<NavigationCubit>(() => NavigationCubit());
   getIt.registerSingleton<ThemeCubit>(ThemeCubit());
   getIt.registerSingleton<LocaleCubit>(LocaleCubit());

@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:rahma_project/config/theming/app_colors.dart';
 import 'package:rahma_project/config/theming/app_text_styles.dart';
+import 'package:rahma_project/core/helpers/azkar_helpers.dart';
 import 'package:rahma_project/core/helpers/extensions.dart';
+import 'package:rahma_project/core/utils/app_snack_bar.dart';
 import 'package:rahma_project/features/tasbeeh/domain/entities/tasbeeh_entity.dart';
+import 'package:rahma_project/features/tasbeeh/presentation/cubit/cubit/update_clicks_cubit.dart';
 
 class TasbeehDetailsScreen extends StatelessWidget {
   const TasbeehDetailsScreen({super.key, required this.item});
@@ -19,7 +23,10 @@ class TasbeehDetailsScreen extends StatelessWidget {
             actions: [
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 8),
-                child: IconButton(onPressed: () async => {}, icon: const Icon(Icons.restart_alt_outlined)),
+                child: IconButton(
+                  onPressed: () => context.read<UpdateClicksCubit>().resetClicks(id: item.id),
+                  icon: const Icon(Icons.restart_alt_outlined),
+                ),
               ),
             ],
           ),
@@ -28,7 +35,11 @@ class TasbeehDetailsScreen extends StatelessWidget {
             child: Center(
               child: Padding(
                 padding: const EdgeInsets.all(16),
-                child: Text(item.content, style: AppTextStyles.w800_24().copyWith(height: 1.5), textAlign: TextAlign.center),
+                child: Text(
+                  item.formattedContent,
+                  style: AppTextStyles.w800_28().copyWith(height: 1.5, fontFamily: "UthmanicHafs"),
+                  textAlign: TextAlign.center,
+                ),
               ),
             ),
           ),
@@ -46,14 +57,27 @@ class TasbeehDetailsScreen extends StatelessWidget {
           ),
           SliverToBoxAdapter(child: Divider(height: 32, thickness: 1, color: AppColors.forestGreen, indent: 25, endIndent: 25)),
           SliverToBoxAdapter(
-            child: Center(
-              child: Text(item.clicks.toString(), textAlign: TextAlign.center, style: AppTextStyles.w800_32().copyWith(height: 1.5)),
+            child: BlocConsumer<UpdateClicksCubit, UpdateClicksState>(
+              listener: (context, state) {
+                if (state is UpdateClicksFailure) {
+                  AppSnackbar.show(context: context, message: state.error, type: SnackbarType.error);
+                }
+              },
+              builder: (context, state) {
+                return Center(
+                  child: Text(
+                    (state is UpdateClicksLoaded) ? state.item.clicks.toString() : item.clicks.toString(),
+                    textAlign: TextAlign.center,
+                    style: AppTextStyles.w800_32().copyWith(height: 1.5),
+                  ),
+                );
+              },
             ),
           ),
           SliverFillRemaining(
             hasScrollBody: false,
             child: GestureDetector(
-              onTap: () => context.pop(),
+              onTap: () => context.read<UpdateClicksCubit>().updateClicks(id: item.id),
               child: Container(
                 height: context.height * .3,
                 margin: EdgeInsets.all(16),

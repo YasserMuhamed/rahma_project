@@ -25,26 +25,26 @@ extension GoNavigation on BuildContext {
   /// The current route is preserved, allowing the user to navigate back.
   ///
   /// Corresponds to the traditional `pushNamed` behavior.
-  void push(String location, {Object? extra}) {
-    GoRouter.of(this).push(location, extra: extra);
+  Future<void> push(String location, {Object? extra}) async {
+    await GoRouter.of(this).push(location, extra: extra);
   }
 
   /// Adds a new named route on top of the current route stack.
-  void pushNamed(String routeName, {Object? extra}) {
-    GoRouter.of(this).pushNamed(routeName, extra: extra);
+  Future<void> pushNamed(String routeName, {Object? extra}) async {
+    await GoRouter.of(this).pushNamed(routeName, extra: extra);
   }
 
   /// Replaces the top-most route in the stack with a new route.
   /// The user cannot navigate back to the previous route.
   ///
   /// Corresponds to the traditional `pushReplacementNamed` behavior.
-  void replace(String location, {Object? extra}) {
-    GoRouter.of(this).replace(location, extra: extra);
+  Future<void> replace(String location, {Object? extra}) async {
+    await GoRouter.of(this).replace(location, extra: extra);
   }
 
   /// Replaces the top-most named route in the stack with a new named route.
-  void replaceNamed(String routeName, {Object? extra}) {
-    GoRouter.of(this).replaceNamed(routeName, extra: extra);
+  Future<void> replaceNamed(String routeName, {Object? extra}) async {
+    await GoRouter.of(this).replaceNamed(routeName, extra: extra);
   }
 
   /// Pops the top-most route off the navigator.

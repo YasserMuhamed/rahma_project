@@ -11,6 +11,7 @@ import 'package:rahma_project/features/home/presentation/pages/home_screen.dart'
 import 'package:rahma_project/features/quibla/presentation/pages/quibla_screen.dart';
 import 'package:rahma_project/features/tasbeeh/domain/entities/tasbeeh_entity.dart';
 import 'package:rahma_project/features/tasbeeh/presentation/cubit/add_tasbeeh/add_tasbeeh_cubit.dart';
+import 'package:rahma_project/features/tasbeeh/presentation/cubit/cubit/update_clicks_cubit.dart';
 import 'package:rahma_project/features/tasbeeh/presentation/cubit/delete_tasbeeh/delete_tasbeeh_cubit.dart';
 import 'package:rahma_project/features/tasbeeh/presentation/cubit/tasbeeh/tasbeeh_cubit.dart';
 import 'package:rahma_project/features/tasbeeh/presentation/pages/tasbeeh_details_screen.dart';
@@ -40,7 +41,10 @@ final GoRouter router = GoRouter(
     GoRoute(path: Routes.quiblaScreen, builder: (context, state) => const QuiblaScreen()),
     GoRoute(
       path: Routes.tasbeehDetailsScreen,
-      builder: (context, state) => TasbeehDetailsScreen(item: state.extra as TasbeehEntity),
+      builder: (context, state) => BlocProvider(
+        create: (context) => getIt<UpdateClicksCubit>(),
+        child: TasbeehDetailsScreen(item: state.extra as TasbeehEntity),
+      ),
     ),
     GoRoute(
       path: Routes.tasabeehScreen,

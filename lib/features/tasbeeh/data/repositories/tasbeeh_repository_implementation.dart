@@ -58,4 +58,24 @@ class TasbeehRepositoryImplementation implements TasbeehRepository {
       return Left(ServerFailure(error: e.toString()));
     }
   }
+
+  @override
+  Future<Either<Failure, TasbeehEntity>> increaseTasbeehClicks(String id) async {
+    try {
+      final updatedTasbeeh = await tasbeehLocalDs.increaseTasbeehClicks(id);
+      return Right(updatedTasbeeh);
+    } catch (e) {
+      return Left(ServerFailure(error: e.toString()));
+    }
+  }
+
+  @override
+  Future<Either<Failure, TasbeehEntity>> resetTasbeehClicks(String id) async {
+    try {
+      final updatedTasbeeh = await tasbeehLocalDs.resetTasbeehClicks(id);
+      return Right(updatedTasbeeh);
+    } catch (e) {
+      return Left(ServerFailure(error: e.toString()));
+    }
+  }
 }

@@ -58,4 +58,28 @@ class TasbeehLocalDs {
     await box.put(tasbeeh.id, tasbeeh);
     Logger().i("Tasbeeh with id ${tasbeeh.id} updated in hive");
   }
+
+  Future<TasbeehEntity> increaseTasbeehClicks(String id) async {
+    final box = Hive.box(HiveKeys.tasabeeh);
+    var isExist = box.containsKey(id);
+    if (!isExist) {
+      throw Exception("Tasbeeh with id $id not found in hive");
+    }
+    final item = box.get(id);
+    final updatedItem = item.copyWith(clicks: item.clicks + 1);
+    await box.put(id, updatedItem);
+    return updatedItem;
+  }
+
+  Future<TasbeehEntity> resetTasbeehClicks(String id) async {
+    final box = Hive.box(HiveKeys.tasabeeh);
+    var isExist = box.containsKey(id);
+    if (!isExist) {
+      throw Exception("Tasbeeh with id $id not found in hive");
+    }
+    final item = box.get(id);
+    final updatedItem = item.copyWith(clicks: 0);
+    await box.put(id, updatedItem);
+    return updatedItem;
+  }
 }
