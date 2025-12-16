@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:rahma_project/config/routing/app_routes.dart';
 import 'package:rahma_project/config/theming/app_colors.dart';
 import 'package:rahma_project/config/theming/app_text_styles.dart';
 import 'package:rahma_project/config/theming/app_theme.dart';
@@ -18,6 +19,7 @@ class TasbeehCard extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 4),
       child: InkWell(
+        onTap: () => context.push(Routes.tasbeehDetailsScreen, extra: item),
         borderRadius: BorderRadius.circular(16),
         onLongPress: () async {
           await Clipboard.setData(ClipboardData(text: item.content));

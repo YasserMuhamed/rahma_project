@@ -1,7 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:rahma_project/config/routing/app_routes.dart';
 import 'package:rahma_project/config/routing/not_found.dart';
-
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:rahma_project/core/di/dependency_injection.dart';
@@ -10,9 +9,11 @@ import 'package:rahma_project/features/azkar/presentation/pages/azkar_category_d
 import 'package:rahma_project/features/prayer/presentation/cubit/prayer_cubit.dart';
 import 'package:rahma_project/features/home/presentation/pages/home_screen.dart';
 import 'package:rahma_project/features/quibla/presentation/pages/quibla_screen.dart';
+import 'package:rahma_project/features/tasbeeh/domain/entities/tasbeeh_entity.dart';
 import 'package:rahma_project/features/tasbeeh/presentation/cubit/add_tasbeeh/add_tasbeeh_cubit.dart';
 import 'package:rahma_project/features/tasbeeh/presentation/cubit/delete_tasbeeh/delete_tasbeeh_cubit.dart';
 import 'package:rahma_project/features/tasbeeh/presentation/cubit/tasbeeh/tasbeeh_cubit.dart';
+import 'package:rahma_project/features/tasbeeh/presentation/pages/tasbeeh_details_screen.dart';
 import 'package:rahma_project/features/tasbeeh/presentation/pages/tasbeeh_screen.dart';
 
 GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
@@ -37,6 +38,10 @@ final GoRouter router = GoRouter(
       builder: (context, state) => AzkarCategoryDetailsScreen(category: state.extra as String),
     ),
     GoRoute(path: Routes.quiblaScreen, builder: (context, state) => const QuiblaScreen()),
+    GoRoute(
+      path: Routes.tasbeehDetailsScreen,
+      builder: (context, state) => TasbeehDetailsScreen(item: state.extra as TasbeehEntity),
+    ),
     GoRoute(
       path: Routes.tasabeehScreen,
       builder: (context, state) => MultiBlocProvider(

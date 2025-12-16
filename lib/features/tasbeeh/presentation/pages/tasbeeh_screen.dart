@@ -19,7 +19,12 @@ class TasbeehScreen extends StatelessWidget {
               SliverAppBar(
                 floating: true,
                 flexibleSpace: FlexibleSpaceBar(title: Text(context.t.tasabeeh)),
-                actions: [IconButton(onPressed: () async => await onAdd(context), icon: const Icon(Icons.add_circle_outline))],
+                actions: [
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 8),
+                    child: IconButton(onPressed: () async => await onAdd(context), icon: const Icon(Icons.add_circle_outline)),
+                  ),
+                ],
               ),
               SliverPadding(
                 padding: const EdgeInsets.only(left: 16, right: 16, bottom: 16),
