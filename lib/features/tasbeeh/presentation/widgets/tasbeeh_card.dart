@@ -90,7 +90,7 @@ class TasbeehCard extends StatelessWidget {
                       padding: const EdgeInsets.symmetric(horizontal: 16),
                       child: Text(item.clicks.toString(), style: AppTextStyles.w600_16().copyWith(color: AppColors.pureWhite)),
                     ),
-                  if (item.clicks > 0) const SizedBox(width: 16),
+                  if (item.clicks > 0) const SizedBox(width: 12),
                 ],
               ),
             ],
