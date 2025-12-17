@@ -68,7 +68,7 @@ class TasbeehDetailsScreen extends StatelessWidget {
                   child: Text(
                     (state is UpdateClicksLoaded) ? state.item.clicks.toString() : item.clicks.toString(),
                     textAlign: TextAlign.center,
-                    style: AppTextStyles.w800_32().copyWith(height: 1.5),
+                    style: AppTextStyles.w800_32(),
                   ),
                 );
               },

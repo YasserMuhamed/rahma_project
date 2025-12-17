@@ -38,6 +38,43 @@ class AppColors {
   static const Color pureWhite = Color(0xFFFFFFFF); // pure white for contrast
   static const Color lightText = Color(0xFFB0C4DE); // soft light steel blue
 
+  static const Color level0 = Color(0xFF0C1733); // < 100  → deep midnight blue
+  static const Color level1 = Color(0xFF13265A); // < 500  → dark calm blue
+  static const Color level2 = Color(0xFF1A3478); // < 1000 → royal muted blue
+  static const Color level3 = Color(0xFF2246A0); // < 2000 → strong blue
+  static const Color level4 = Color(0xFF2D5BD0); // < 5000 → confident bright blue
+  static const Color level5 = Color(0xFF5B84FF); // < 10000 → achievement blue
+
+  static Color tasbeehColor(int count) {
+    if (count < 10) return AppColors.level0;
+    if (count < 50) return AppColors.level1;
+    if (count < 100) return AppColors.level2;
+    if (count < 200) return AppColors.level3;
+    if (count < 500) return AppColors.level4;
+    if (count < 1000) return AppColors.level5;
+    return AppColors.level5;
+  }
+
+  static int alpha(int count) {
+    if (count < 10) return 0;
+    if (count < 50) return 30;
+    if (count < 100) return 90;
+    if (count < 200) return 120;
+    if (count < 500) return 180;
+    if (count < 1000) return 250;
+    return 250;
+  }
+
+  static BoxBorder? border(int count) {
+    if (count < 10) return null;
+    if (count < 50) return Border.all(color: Colors.grey.shade100.withAlpha(60), width: 1);
+    if (count < 100) return Border.all(color: Colors.grey.shade100.withAlpha(80), width: 1.2);
+    if (count < 200) return Border.all(color: Colors.grey.shade100.withAlpha(120), width: 1.2);
+    if (count < 500) return Border.all(color: Colors.grey.shade100.withAlpha(150), width: 1.2);
+    if (count < 1000) return Border.all(color: Colors.grey.shade100.withAlpha(180), width: 1.3);
+    return Border.all(color: Colors.grey.shade100.withAlpha(220), width: 1.5);
+  }
+
   // static const Color vibrantEmerald = Color(0xFF6A0DAD); // vivid deep violet
   // static const Color forestGreen = Color(0xFF4B0082); // rich dark purple
   // static const Color hunterGreen = Color(0xFF330055); // very dark purple

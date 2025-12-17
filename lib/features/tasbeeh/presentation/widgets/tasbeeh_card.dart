@@ -31,7 +31,7 @@ class TasbeehCard extends StatelessWidget {
           AppSnackbar.show(context: context, message: context.t.copied_to_clipboard);
         },
         child: Container(
-          padding: const EdgeInsets.all(16),
+          padding: const EdgeInsets.symmetric(vertical: 16),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(16),
             color: Theme.of(context).primaryColor,
@@ -45,17 +45,21 @@ class TasbeehCard extends StatelessWidget {
           child: Column(
             crossAxisAlignment: .start,
             children: [
-              SelectableText(
-                onTap: () => context.push(Routes.tasbeehDetailsScreen, extra: item).then((_) {
-                  if (context.mounted) context.read<TasbeehCubit>().getTasbeeh();
-                }),
-                item.formattedContent,
-                textAlign: TextAlign.start,
-                style: AppTextStyles.w600_16().copyWith(color: Colors.white, fontFamily: "UthmanicHafs", height: 1.5, fontSize: 24),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                child: SelectableText(
+                  onTap: () => context.push(Routes.tasbeehDetailsScreen, extra: item).then((_) {
+                    if (context.mounted) context.read<TasbeehCubit>().getTasbeeh();
+                  }),
+                  item.formattedContent,
+                  textAlign: TextAlign.start,
+                  style: AppTextStyles.w600_16().copyWith(color: Colors.white, fontFamily: "UthmanicHafs", height: 1.5, fontSize: 24),
+                ),
               ),
               Row(
                 mainAxisAlignment: .spaceBetween,
                 children: [
+                  item.description == '' ? const SizedBox.shrink() : const SizedBox(width: 16),
                   item.description == ''
                       ? const SizedBox.shrink()
                       : Expanded(
@@ -68,15 +72,25 @@ class TasbeehCard extends StatelessWidget {
                             ),
                           ),
                         ),
+                  SizedBox(width: 4),
                   if (item.clicks > 0)
-                    Padding(
-                      padding: const EdgeInsets.only(top: 8.0),
-                      child: Text(
-                        context.t.your_tasbeeh_count(item.clicks),
-
-                        style: AppTextStyles.w600_16().copyWith(color: DarkEarthyTheme.lightText.withValues(alpha: .85)),
+                    Container(
+                      decoration: BoxDecoration(
+                        border: AppColors.border(item.clicks),
+                        borderRadius: BorderRadius.circular(16),
+                        boxShadow: [
+                          BoxShadow(
+                            color: const Color.fromARGB(255, 110, 183, 255).withAlpha(AppColors.alpha(item.clicks)),
+                            blurRadius: 10,
+                            offset: const Offset(0, 0),
+                          ),
+                        ],
+                        color: AppColors.tasbeehColor(item.clicks),
                       ),
+                      padding: const EdgeInsets.symmetric(horizontal: 16),
+                      child: Text(item.clicks.toString(), style: AppTextStyles.w600_16().copyWith(color: AppColors.pureWhite)),
                     ),
+                  if (item.clicks > 0) const SizedBox(width: 16),
                 ],
               ),
             ],
