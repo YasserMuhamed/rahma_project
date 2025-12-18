@@ -16,7 +16,7 @@ class AzkarCategoryDetailsScreen extends StatelessWidget {
         body: SafeArea(
           child: CustomScrollView(
             slivers: [
-              SliverAppBar(flexibleSpace: FlexibleSpaceBar(title: Text(category))),
+              SliverAppBar(title: Text(category), floating: true),
               AzkarBlocBuilder(),
             ],
           ),

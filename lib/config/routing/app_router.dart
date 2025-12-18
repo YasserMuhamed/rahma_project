@@ -28,8 +28,8 @@ final GoRouter router = GoRouter(
       path: Routes.homeScreen,
       builder: (context, state) => BlocProvider(
         create: (context) => getIt<PrayerCubit>()
-          ..loadPrayersWithUserLocation()
-          ..isLocationChanged(),
+          ..loadPrayers()
+          ..checkLocationChange(),
         child: const HomeScreen(),
       ),
     ),

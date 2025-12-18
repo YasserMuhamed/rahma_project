@@ -57,7 +57,7 @@ class DarkEarthyTheme {
         backgroundColor: pineNeedle,
         foregroundColor: pureWhite,
         elevation: 2,
-        titleTextStyle: TextStyle(color: pureWhite, fontSize: 20, fontWeight: FontWeight.w600),
+        titleTextStyle: TextStyle(color: pureWhite, fontSize: 20, fontWeight: FontWeight.w600, fontFamily: "Almarai"),
       ),
 
       // Scaffold background

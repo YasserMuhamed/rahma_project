@@ -43,5 +43,11 @@
   "delete": "حذف",
   "edit": "تعديل",
   "tasbeeh_deleted": "تم حذف التسبيحة",
-  "tasbeeh_updated": "تم تحديث التسبيحة"
+  "tasbeeh_updated": "تم تحديث التسبيحة",
+  "reset": "إعادة تعيين",
+  "tasbeeh_reset": "تمت إعادة تعيين التسبيحة",
+  "tasbeeh_reset_confirmation": "هل أنت متأكد أنك تريد إعادة تعيين عداد التسبيحة؟",
+  "using_cached_data": "استخدام البيانات المخزنة مؤقتًا",
+  "refresh": "تحديث",
+  "update": "تحديث"
 }

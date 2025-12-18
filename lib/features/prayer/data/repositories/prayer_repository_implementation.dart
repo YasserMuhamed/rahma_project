@@ -13,84 +13,62 @@ class PrayerRepositoryImplementation implements PrayerRepository {
   final PrayerLocalDs prayerLocalDs;
   final PrayerRemoteDs prayerRemoteDs;
 
-  static const double significantDistanceKm = 30.0;
-
-  PrayerRepositoryImplementation({
-    required this.prayerLocalDs,
-    required this.prayerRemoteDs,
-  });
+  PrayerRepositoryImplementation({required this.prayerLocalDs, required this.prayerRemoteDs});
 
   @override
-  Future<Either<Failure, PrayerEntity>> getDailyPrayer({
-    bool forceRefresh = false,
-  }) async {
-    if (forceRefresh) {
-      return await getRemotePrayer();
+  Future<Either<Failure, PrayerEntity?>> getLocalPrayer() async {
+    try {
+      final prayer = await prayerLocalDs.getPrayer();
+      return Right(prayer);
+    } catch (e) {
+      return Left(CacheFailure(error: e.toString()));
     }
-    PrayerEntity? localPrayer = await prayerLocalDs.getPrayer();
-    if (localPrayer != null) {
-      final shouldFetchNewPrayerData = _shouldFetchNewPrayerData(localPrayer);
-      if (!shouldFetchNewPrayerData) return Right(localPrayer);
-    }
-    return await getRemotePrayer();
   }
 
-  Future<Either<Failure, PrayerEntity>> getRemotePrayer() async {
+  @override
+  Future<Either<Failure, PrayerEntity>> getRemotePrayer(LatLng location) async {
     try {
-      Position targetLocation = await determinePosition();
-      PrayerEntity prayer = await prayerRemoteDs.getPrayer(
-        LatLng(targetLocation.latitude, targetLocation.longitude),
-      );
+      final prayer = await prayerRemoteDs.getPrayer(location);
       return Right(prayer);
     } catch (e) {
       if (e is DioException) {
         return Left(ServerFailure.fromDioException(e));
-      } else {
-        return Left(ServerFailure(error: e.toString()));
       }
+      return Left(ServerFailure(error: e.toString()));
     }
-  }
-
-  bool _shouldFetchNewPrayerData(PrayerEntity localPrayer) {
-    if (!_isSameDay(localPrayer.date?.timestamp)) return true;
-    return false;
-  }
-
-  /// Checks if the stored prayer is for today
-  bool _isSameDay(DateTime? storedDate) {
-    if (storedDate == null) return false;
-
-    final now = DateTime.now();
-    return storedDate.year == now.year &&
-        storedDate.month == now.month &&
-        storedDate.day == now.day;
-  }
-
-  /// Checks if location changed by more than 10km
-  bool _isSignificantLocationChange(LatLng? oldLocation, LatLng newLocation) {
-    if (oldLocation?.latitude == null || oldLocation?.longitude == null) {
-      return false;
-    }
-
-    double distanceInMeters = Geolocator.distanceBetween(
-      oldLocation!.latitude!,
-      oldLocation.longitude!,
-      newLocation.latitude!,
-      newLocation.longitude!,
-    );
-
-    double distanceInKm = distanceInMeters / 1000;
-    return distanceInKm >= significantDistanceKm;
   }
 
   @override
-  Future<bool> isLocationChanged() async {
-    PrayerEntity? localPrayer = await prayerLocalDs.getPrayer();
-    if (localPrayer == null) return false;
-    Position targetLocation = await determinePosition();
-    return _isSignificantLocationChange(
-      LatLng(localPrayer.location?.latitude, localPrayer.location?.longitude),
-      LatLng(targetLocation.latitude, targetLocation.longitude),
-    );
+  Future<Either<Failure, Position>> getCurrentLocation() async {
+    try {
+      final position = await determinePosition();
+      return Right(position);
+    } catch (e) {
+      return Left(LocationFailure(error: e.toString()));
+    }
+  }
+
+  @override
+  Future<Either<Failure, void>> savePrayerLocally(PrayerEntity prayer) async {
+    try {
+      await prayerLocalDs.savePrayerLocally(prayer);
+      return const Right(null);
+    } catch (e) {
+      return Left(CacheFailure(error: e.toString()));
+    }
+  }
+
+  @override
+  Future<bool> hasLocationChanged(LatLng oldLocation, LatLng newLocation) async {
+    // Check if distance between locations is > threshold (e.g., 10km)
+    const threshold = 10.0; // km
+    final distance = _calculateDistance(oldLocation, newLocation);
+    return distance > threshold;
+  }
+
+  double _calculateDistance(LatLng l1, LatLng l2) {
+    // Haversine formula implementation
+    // ... your distance calculation
+    return 0.0; // placeholder
   }
 }

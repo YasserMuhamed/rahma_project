@@ -204,7 +204,7 @@ class _PrayerCardState extends State<PrayerCard> {
                       itemBuilder: (context) => [PopupMenuItem(value: 'change_location', child: Text(S.of(context).update_prayer_times))],
                       onSelected: (value) {
                         if (value == 'change_location') {
-                          context.read<PrayerCubit>().loadPrayersWithUserLocation(forceRefresh: true);
+                          context.read<PrayerCubit>().loadPrayers(forceRefresh: true);
                         }
                       },
                     ),

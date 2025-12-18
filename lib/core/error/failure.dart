@@ -16,60 +16,39 @@ class ServerFailure extends Failure {
     switch (error.type) {
       case DioExceptionType.badCertificate:
       case DioExceptionType.badResponse:
-        return ServerFailure.fromResponse(
-          error.response?.statusCode ?? 0,
-          error.response?.data,
-        );
+        return ServerFailure.fromResponse(error.response?.statusCode ?? 0, error.response?.data);
       case DioExceptionType.receiveTimeout:
         return ServerFailure(error: 'Server error', code: code);
       case DioExceptionType.cancel:
       case DioExceptionType.connectionError:
       case DioExceptionType.sendTimeout:
       case DioExceptionType.connectionTimeout:
-        return ServerFailure(
-          error: 'Please check the internet and try again',
-          code: code,
-        );
+        return ServerFailure(error: 'Please check the internet and try again', code: code);
       case DioExceptionType.unknown:
         return ServerFailure(error: 'Unknown error', code: code);
     }
   }
 
   /// Creates a [ServerFailure] from a response body and status code.
-  factory ServerFailure.fromResponse(
-    int statusCode,
-    dynamic errorResponseBody,
-  ) {
+  factory ServerFailure.fromResponse(int statusCode, dynamic errorResponseBody) {
     if (errorResponseBody is Map<String, dynamic>) {
       // لو في errors object → نحلله ونرجع رسائله
       if (errorResponseBody.containsKey("errors")) {
-        return ServerFailure(
-          error: parseErrorResponse(errorResponseBody),
-          code: statusCode,
-        );
+        return ServerFailure(error: parseErrorResponse(errorResponseBody), code: statusCode);
       }
 
       // لو في message عام
       if (errorResponseBody.containsKey("message")) {
-        return ServerFailure(
-          error: errorResponseBody["message"] ?? 'Unexpected error',
-          code: statusCode,
-        );
+        return ServerFailure(error: errorResponseBody["message"] ?? 'Unexpected error', code: statusCode);
       }
     }
 
     if (statusCode == 404) {
-      return ServerFailure(
-        error: 'Not found, Please try again',
-        code: statusCode,
-      );
+      return ServerFailure(error: 'Not found, Please try again', code: statusCode);
     } else if (statusCode == 500) {
       return ServerFailure(error: 'Server error', code: statusCode);
     } else if (statusCode >= 400 && statusCode < 500) {
-      return ServerFailure(
-        error: 'There was an error, Please try again',
-        code: statusCode,
-      );
+      return ServerFailure(error: 'There was an error, Please try again', code: statusCode);
     } else {
       return ServerFailure(error: 'Unexpected error', code: statusCode);
     }
@@ -87,17 +66,19 @@ String parseErrorResponse(Map<String, dynamic> errorResponse) {
       })
       .join('\n');
 
-  return errorMessages.isNotEmpty
-      ? errorMessages
-      : errorResponse['message'] ?? 'Validation error';
+  return errorMessages.isNotEmpty ? errorMessages : errorResponse['message'] ?? 'Validation error';
 }
 
 /// Represents cache-related failures.
 class CacheFailure extends Failure {
-  CacheFailure({required super.error, required super.code});
+  CacheFailure({required super.error});
 
   /// Creates a [CacheFailure] from an exception.
   factory CacheFailure.fromException(Exception error) {
-    return CacheFailure(error: error.toString(), code: 0);
+    return CacheFailure(error: error.toString());
   }
+}
+
+class LocationFailure extends Failure {
+  LocationFailure({required super.error});
 }

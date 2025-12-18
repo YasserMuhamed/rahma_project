@@ -378,6 +378,51 @@ class S {
       args: [],
     );
   }
+
+  /// `Reset`
+  String get reset {
+    return Intl.message('Reset', name: 'reset', desc: '', args: []);
+  }
+
+  /// `Tasbeeh reset`
+  String get tasbeeh_reset {
+    return Intl.message(
+      'Tasbeeh reset',
+      name: 'tasbeeh_reset',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Are you sure you want to reset the tasbeeh count?`
+  String get tasbeeh_reset_confirmation {
+    return Intl.message(
+      'Are you sure you want to reset the tasbeeh count?',
+      name: 'tasbeeh_reset_confirmation',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Using cached data`
+  String get using_cached_data {
+    return Intl.message(
+      'Using cached data',
+      name: 'using_cached_data',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Refresh`
+  String get refresh {
+    return Intl.message('Refresh', name: 'refresh', desc: '', args: []);
+  }
+
+  /// `Update`
+  String get update {
+    return Intl.message('Update', name: 'update', desc: '', args: []);
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

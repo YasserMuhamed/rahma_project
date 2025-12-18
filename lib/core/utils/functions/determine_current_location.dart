@@ -37,7 +37,7 @@ Future<Position> determinePosition() async {
   // Use optimized location settings for faster acquisition
   return await Geolocator.getCurrentPosition(
     locationSettings: const LocationSettings(
-      accuracy: LocationAccuracy.medium, // Faster than high accuracy
+      accuracy: LocationAccuracy.medium,
       distanceFilter: 10, // Only update if moved 10 meters
       timeLimit: Duration(seconds: 10), // Timeout after 10 seconds
     ),

@@ -76,7 +76,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "qibla": MessageLookupByLibrary.simpleMessage("Qibla"),
     "quibla_angle": m1,
     "quraan": MessageLookupByLibrary.simpleMessage("Quraan"),
+    "refresh": MessageLookupByLibrary.simpleMessage("Refresh"),
     "repeat": m2,
+    "reset": MessageLookupByLibrary.simpleMessage("Reset"),
     "reset_tasbeeh": MessageLookupByLibrary.simpleMessage("Reset Tasbeeh"),
     "retry": MessageLookupByLibrary.simpleMessage("Retry"),
     "rotate_to_align_arrows": MessageLookupByLibrary.simpleMessage(
@@ -86,10 +88,18 @@ class MessageLookup extends MessageLookupByLibrary {
     "sunrise": MessageLookupByLibrary.simpleMessage("Sunrise"),
     "tasabeeh": MessageLookupByLibrary.simpleMessage("Tasabeeh"),
     "tasbeeh_deleted": MessageLookupByLibrary.simpleMessage("Tasbeeh deleted"),
+    "tasbeeh_reset": MessageLookupByLibrary.simpleMessage("Tasbeeh reset"),
+    "tasbeeh_reset_confirmation": MessageLookupByLibrary.simpleMessage(
+      "Are you sure you want to reset the tasbeeh count?",
+    ),
     "tasbeeh_updated": MessageLookupByLibrary.simpleMessage("Tasbeeh updated"),
     "tasbehah": MessageLookupByLibrary.simpleMessage("Tasbehah"),
+    "update": MessageLookupByLibrary.simpleMessage("Update"),
     "update_prayer_times": MessageLookupByLibrary.simpleMessage(
       "Update with Current Location",
+    ),
+    "using_cached_data": MessageLookupByLibrary.simpleMessage(
+      "Using cached data",
     ),
     "yes": MessageLookupByLibrary.simpleMessage("Yes"),
     "your_tasbeeh_count": m3,

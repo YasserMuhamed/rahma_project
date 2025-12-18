@@ -18,7 +18,7 @@ class TasbeehScreen extends StatelessWidget {
             slivers: [
               SliverAppBar(
                 floating: true,
-                flexibleSpace: FlexibleSpaceBar(title: Text(context.t.tasabeeh)),
+                title: Text(context.t.tasabeeh),
                 actions: [
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 8),

@@ -43,5 +43,11 @@
   "delete": "Delete",
   "edit": "Edit",
   "tasbeeh_deleted": "Tasbeeh deleted",
-  "tasbeeh_updated": "Tasbeeh updated"
+  "tasbeeh_updated": "Tasbeeh updated",
+  "reset": "Reset",
+  "tasbeeh_reset": "Tasbeeh reset",
+  "tasbeeh_reset_confirmation": "Are you sure you want to reset the tasbeeh count?",
+  "using_cached_data": "Using cached data",
+  "refresh": "Refresh",
+  "update": "Update"
 }

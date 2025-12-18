@@ -46,7 +46,9 @@ class AzkarCard extends StatelessWidget {
               ),
               SizedBox(height: 8),
               Row(
+                spacing: 4,
                 mainAxisAlignment: .spaceBetween,
+                crossAxisAlignment: .end,
                 children: [
                   item.description == ''
                       ? const SizedBox.shrink()
@@ -60,6 +62,7 @@ class AzkarCard extends StatelessWidget {
                             ),
                           ),
                         ),
+
                   if (item.count != '')
                     Padding(
                       padding: const EdgeInsets.only(top: 8.0),

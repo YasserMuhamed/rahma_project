@@ -74,7 +74,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "qibla": MessageLookupByLibrary.simpleMessage("القبلة"),
     "quibla_angle": m1,
     "quraan": MessageLookupByLibrary.simpleMessage("القرآن"),
+    "refresh": MessageLookupByLibrary.simpleMessage("تحديث"),
     "repeat": m2,
+    "reset": MessageLookupByLibrary.simpleMessage("إعادة تعيين"),
     "reset_tasbeeh": MessageLookupByLibrary.simpleMessage(
       "إعادة تعيين التسبيح",
     ),
@@ -86,12 +88,22 @@ class MessageLookup extends MessageLookupByLibrary {
     "sunrise": MessageLookupByLibrary.simpleMessage("الشروق"),
     "tasabeeh": MessageLookupByLibrary.simpleMessage("تسابيح"),
     "tasbeeh_deleted": MessageLookupByLibrary.simpleMessage("تم حذف التسبيحة"),
+    "tasbeeh_reset": MessageLookupByLibrary.simpleMessage(
+      "تمت إعادة تعيين التسبيحة",
+    ),
+    "tasbeeh_reset_confirmation": MessageLookupByLibrary.simpleMessage(
+      "هل أنت متأكد أنك تريد إعادة تعيين عداد التسبيحة؟",
+    ),
     "tasbeeh_updated": MessageLookupByLibrary.simpleMessage(
       "تم تحديث التسبيحة",
     ),
     "tasbehah": MessageLookupByLibrary.simpleMessage("التسبيحة"),
+    "update": MessageLookupByLibrary.simpleMessage("تحديث"),
     "update_prayer_times": MessageLookupByLibrary.simpleMessage(
       "تحديث بالموقع الحالي",
+    ),
+    "using_cached_data": MessageLookupByLibrary.simpleMessage(
+      "استخدام البيانات المخزنة مؤقتًا",
     ),
     "yes": MessageLookupByLibrary.simpleMessage("نعم"),
     "your_tasbeeh_count": m3,
